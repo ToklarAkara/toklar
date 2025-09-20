@@ -42,10 +42,11 @@ public class StructureTradeFixer {
 	        NBTTagCompound structureData = CompressedStreamTools.read(structureFile);
 	        System.out.println("[TradeFixer] Successfully loaded structure: " + structureFile.getName());
 
-	        // Your logic to scan and fix trades here
+	        //  logic to scan and fix trades here
 
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
 	}
+
 }
