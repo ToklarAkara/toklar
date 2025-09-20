@@ -1,0 +1,66 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkey",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkeydiamond",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkeyemerald",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_fire_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_ice_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_lightning_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

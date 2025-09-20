@@ -1,0 +1,13 @@
+item.toklararmorboots.name=Toklar Boots
+entity.monster.name=Monster
+item.toklararmorbody.name=Toklar Chestplate
+item.toklararmorlegs.name=Toklar Leggings
+item.toklararmorhelmet.name=Toklar Helmet
+item.bronzearmorlegs.name=Bronze Armor Leggings
+item.bronzearmorbody.name=Bronze Armor Body
+item.bronzearmorhelmet.name=Bronze Armor Helmet
+item.bronzearmorboots.name=Bronze Armor Boots
+enchantment.toklar.focus=Focus
+enchantment.toklar.focus.desc=Increases summon damage for a short time and retarget them to assist the player.
+tile.monster_candle.name=Monster Candle
+enchantment.block_reach=Block Reach
