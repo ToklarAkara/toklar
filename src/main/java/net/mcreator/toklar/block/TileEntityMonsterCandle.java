@@ -44,7 +44,7 @@ public class TileEntityMonsterCandle extends TileEntity implements ITickable {
 
         AxisAlignedBB area = new AxisAlignedBB(pos).grow(SPAWN_RADIUS);
         List<EntityLivingBase> nearby = world.getEntitiesWithinAABB(EntityLivingBase.class, area,
-            e -> e instanceof EntityLivingBase && e.isCreatureType(EnumCreatureType.MONSTER, false));
+            e -> e.isCreatureType(EnumCreatureType.MONSTER, false));
         if (nearby.size() >= MAX_NEARBY_MOBS) return;
 
         Biome biome = world.getBiome(pos);
@@ -56,22 +56,34 @@ public class TileEntityMonsterCandle extends TileEntity implements ITickable {
 
         try {
             EntityLiving entity = (EntityLiving) entry.entityClass.getConstructor(world.getClass()).newInstance(world);
-            double x = pos.getX() + rand.nextInt(SPAWN_RADIUS * 2 + 1) - SPAWN_RADIUS + 0.5;
-            double y = pos.getY() + 1;
-            double z = pos.getZ() + rand.nextInt(SPAWN_RADIUS * 2 + 1) - SPAWN_RADIUS + 0.5;
-            entity.setLocationAndAngles(x, y, z, rand.nextFloat() * 360F, 0);
 
-            if (entity.isNotColliding()) {
-                world.spawnEntity(entity);
-                totalSpawns++;
+            for (int attempt = 0; attempt < 10; attempt++) {
+                int dx = rand.nextInt(SPAWN_RADIUS * 2 + 1) - SPAWN_RADIUS;
+                int dz = rand.nextInt(SPAWN_RADIUS * 2 + 1) - SPAWN_RADIUS;
+                BlockPos base = pos.add(dx, 0, dz);
+                BlockPos top = world.getTopSolidOrLiquidBlock(base);
 
-                world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 6, 0.1, 0.1, 0.1, 0.01);
-                world.playSound(null, x, y, z, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.HOSTILE, 0.5F, 1.0F);
+                double x = top.getX() + 0.5;
+                double y = top.getY() + 1;
+                double z = top.getZ() + 0.5;
 
-                if (totalSpawns >= MAX_TOTAL_SPAWNS) {
-                    world.setBlockToAir(pos);
-                    world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 12, 0.2, 0.2, 0.2, 0.01);
+                entity.setLocationAndAngles(x, y, z, rand.nextFloat() * 360F, 0);
+                entity.forceSpawn = true;
+                entity.enablePersistence();
+
+                if (entity.isNotColliding()) {
+                    world.spawnEntity(entity);
+                    totalSpawns++;
+
+                    world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 6, 0.1, 0.1, 0.1, 0.01);
+                    world.playSound(null, x, y, z, SoundEvents.ENTITY_ZOMBIE_AMBIENT, SoundCategory.HOSTILE, 0.5F, 1.0F);
+
+                    if (totalSpawns >= MAX_TOTAL_SPAWNS) {
+                        world.setBlockToAir(pos);
+                        world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                        world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 12, 0.2, 0.2, 0.2, 0.01);
+                    }
+                    break;
                 }
             }
         } catch (Exception e) {
