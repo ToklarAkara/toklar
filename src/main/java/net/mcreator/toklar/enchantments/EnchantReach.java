@@ -20,7 +20,7 @@ public class EnchantReach extends Enchantment {
     private static final String NBT_REACH_ON = "reachon";
 
     public EnchantReach() {
-    	super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_CHEST, new EntityEquipmentSlot[]{EntityEquipmentSlot.CHEST});
+        super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_CHEST, new EntityEquipmentSlot[]{EntityEquipmentSlot.CHEST});
         this.setRegistryName("block_reach");
         this.setName("block_reach");
     }
@@ -42,20 +42,24 @@ public class EnchantReach extends Enchantment {
     }
 
     private void turnReachOn(EntityPlayer player) {
-        player.getEntityData().setBoolean(NBT_REACH_ON, true);
         IAttributeInstance reachAttr = player.getAttributeMap().getAttributeInstanceByName("generic.reachDistance");
-        if (reachAttr != null) {
-            reachAttr.removeModifier(REACH_BOOST_UUID);
-            AttributeModifier modifier = new AttributeModifier(REACH_BOOST_UUID, "EnchantReachBoost", 1.0, 1);
+        if (reachAttr != null && reachAttr.getModifier(REACH_BOOST_UUID) == null) {
+            AttributeModifier modifier = new AttributeModifier(
+                REACH_BOOST_UUID,
+                "EnchantReachBoost",
+                1.0, // Multiplies reach by (1 + 1.0) = 2x
+                1    // Operation 1 = multiply base by (1 + amount)
+            );
             reachAttr.applyModifier(modifier);
+            player.getEntityData().setBoolean(NBT_REACH_ON, true);
         }
     }
 
     private void turnReachOff(EntityPlayer player) {
-        player.getEntityData().setBoolean(NBT_REACH_ON, false);
         IAttributeInstance reachAttr = player.getAttributeMap().getAttributeInstanceByName("generic.reachDistance");
-        if (reachAttr != null) {
+        if (reachAttr != null && reachAttr.getModifier(REACH_BOOST_UUID) != null) {
             reachAttr.removeModifier(REACH_BOOST_UUID);
+            player.getEntityData().setBoolean(NBT_REACH_ON, false);
         }
     }
 
@@ -75,7 +79,7 @@ public class EnchantReach extends Enchantment {
 
         if (level > 0) {
             turnReachOn(player);
-        } else if (player.getEntityData().hasKey(NBT_REACH_ON) && player.getEntityData().getBoolean(NBT_REACH_ON)) {
+        } else if (player.getEntityData().getBoolean(NBT_REACH_ON)) {
             turnReachOff(player);
         }
     }
