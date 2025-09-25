@@ -1,0 +1,9 @@
+# Ignore all jar files in libs/
+libs/*.jar
+
+# Optional: ignore build artifacts
+/build/
+/out/
+/.gradle/
+/run/
+/bin/
