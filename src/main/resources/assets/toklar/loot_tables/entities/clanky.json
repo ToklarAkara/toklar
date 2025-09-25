@@ -1,0 +1,161 @@
+{
+  "pools": [
+    {
+    	"name": "keys",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkey",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkeydiamond",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "lycanitesmobs:soulkeyemerald",
+          "weight": 1
+        }
+      ]
+    },
+   {
+   	"name": "defiled",
+  "rolls": 1,
+  "entries": [
+    {
+      "type": "item",
+      "name": "defiledlands:idol_sorrow",
+      "weight": 1
+    },
+    {
+      "type": "item",
+      "name": "defiledlands:calling_stone",
+      "weight": 1
+    }
+  ]
+},
+{
+  "name": "wither",
+  "rolls": 3,
+  "entries": [
+    {
+      "type": "item",
+      "name": "minecraft:skull",
+      "functions": [
+        {
+          "function": "minecraft:set_damage",
+          "damage": 1
+        }
+      ]
+    }
+  ]
+},
+{
+	"name": "end",
+  "rolls": 1,
+  "entries": [
+    {
+      "type": "item",
+      "name": "minecraft:end_crystal",
+      "weight": 1,
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "min": 2,
+            "max": 4
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+	"name": "parasite",
+  "rolls": 1,
+  "entries": [
+    {
+      "type": "item",
+      "name": "contenttweaker:blood_tear",
+      "weight": 1,
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "min": 2,
+            "max": 7
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+	"name": "books",
+  "rolls": 8,
+  "entries": [
+    {
+      "type": "item",
+      "name": "minecraft:book",
+      "weight": 1,
+      "functions": [
+              {
+          "function": "minecraft:enchant_randomly"
+        }
+      ]
+    }
+  ]
+},
+    {
+    	"name": "dragonsteel",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_fire_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_ice_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "iceandfire:dragonsteel_lightning_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

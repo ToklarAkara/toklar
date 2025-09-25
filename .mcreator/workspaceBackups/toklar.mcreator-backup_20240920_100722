@@ -1,0 +1,79 @@
+{
+  "id_map": {
+    "ENTITY": 4
+  },
+  "mod_elements": [
+    {
+      "name": "ToklarArmor",
+      "type": "armor",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "BronzeArmor",
+      "type": "armor",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "Monster",
+      "type": "mob",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {
+        "0": 3,
+        "1": 4
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.toklararmorhelmet.name": "Toklar Helmet",
+      "item.bronzearmorbody.name": "Bronze Armor Body",
+      "item.bronzearmorhelmet.name": "Bronze Armor Helmet",
+      "item.toklararmorboots.name": "Toklar Boots",
+      "entity.monster.name": "Monster",
+      "item.toklararmorbody.name": "Toklar Chestplate",
+      "item.toklararmorlegs.name": "Toklar Leggings",
+      "item.bronzearmorlegs.name": "Bronze Armor Leggings",
+      "item.bronzearmorboots.name": "Bronze Armor Boots"
+    }
+  },
+  "workspaceSettings": {
+    "modid": "toklar",
+    "modName": "toklar",
+    "version": "1.0.0",
+    "author": "samia, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "1.12.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.toklar",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202000214217
+}

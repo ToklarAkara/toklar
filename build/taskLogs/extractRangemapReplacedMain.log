@@ -1,0 +1,122 @@
+Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\libs\ironchest.cfg
+Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\build\classes\java\api
+Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\build\resources\api
+Symbol range map extraction starting
+Processing 39 files
+startProcessing "net/mcreator/toklar/ClientProxyToklar.java" md5: caefc12628e198c7719e883b6b363071
+endProcessing "net/mcreator/toklar/ClientProxyToklar.java"
+
+startProcessing "net/mcreator/toklar/ElementsToklar.java" md5: e11379b94f1f8db22aef00c4b30c7fa8
+endProcessing "net/mcreator/toklar/ElementsToklar.java"
+
+startProcessing "net/mcreator/toklar/IProxyToklar.java" md5: 39a801e81bde29ad219baf9d71fdb802
+endProcessing "net/mcreator/toklar/IProxyToklar.java"
+
+startProcessing "net/mcreator/toklar/ServerProxyToklar.java" md5: 9e0b0f13a622218b6b7e9a5057a82c6c
+endProcessing "net/mcreator/toklar/ServerProxyToklar.java"
+
+startProcessing "net/mcreator/toklar/StructureTradeFixer.java" md5: 4901cdcd313035fd34c2410fd13e18a3
+endProcessing "net/mcreator/toklar/StructureTradeFixer.java"
+
+startProcessing "net/mcreator/toklar/StructureTradeFixerMod.java" md5: 6a8b1f5d54f3075f9a7cac988332df8c
+endProcessing "net/mcreator/toklar/StructureTradeFixerMod.java"
+
+startProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java" md5: 1fedbe2b176870f488c0ad5ea6253445
+endProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java"
+
+startProcessing "net/mcreator/toklar/Toklar.java" md5: dd1436fda2cba8e45d24bef75e6c86ba
+endProcessing "net/mcreator/toklar/Toklar.java"
+
+startProcessing "net/mcreator/toklar/ToklarVariables.java" md5: a29b00d88913dfb8f6e544f582bde268
+endProcessing "net/mcreator/toklar/ToklarVariables.java"
+
+startProcessing "net/mcreator/toklar/block/BlockImbuementAltar.java" md5: 6adc716a9b232857a832180f34dc4594
+endProcessing "net/mcreator/toklar/block/BlockImbuementAltar.java"
+
+startProcessing "net/mcreator/toklar/block/MonsterCandle.java" md5: 86a39925cb9a07aec742a8aedbbbd449
+endProcessing "net/mcreator/toklar/block/MonsterCandle.java"
+
+startProcessing "net/mcreator/toklar/block/TileEntityMonsterCandle.java" md5: 5b7e2a03d27abdf46f7c6062503e1d13
+endProcessing "net/mcreator/toklar/block/TileEntityMonsterCandle.java"
+
+startProcessing "net/mcreator/toklar/client/ClientModelRegistry.java" md5: a5b262f6f8a57373a26988097a1ddea7
+endProcessing "net/mcreator/toklar/client/ClientModelRegistry.java"
+
+startProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java" md5: 60334514a6c27a1eb56d29053820a5be
+endProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java"
+
+startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: 5c417c65b473fbd49dbc1a46026329da
+endProcessing "net/mcreator/toklar/config/ModConfig.java"
+
+startProcessing "net/mcreator/toklar/enchantments/EnchantArcaneLeech.java" md5: 393b733d72bc2df3e661f35acfe0f164
+endProcessing "net/mcreator/toklar/enchantments/EnchantArcaneLeech.java"
+
+startProcessing "net/mcreator/toklar/enchantments/EnchantHeroic.java" md5: ea8a31973d71f4fd55684274145f9fb9
+endProcessing "net/mcreator/toklar/enchantments/EnchantHeroic.java"
+
+startProcessing "net/mcreator/toklar/enchantments/EnchantReach.java" md5: fa6a63666558f5595a0206e4a2e06111
+endProcessing "net/mcreator/toklar/enchantments/EnchantReach.java"
+
+startProcessing "net/mcreator/toklar/enchantments/EnchantmentFocus.java" md5: 7b5e2553d391675c4a005a9c6a70612c
+endProcessing "net/mcreator/toklar/enchantments/EnchantmentFocus.java"
+
+startProcessing "net/mcreator/toklar/enchantments/FocusEnchantmentHandler.java" md5: 735573afe436e68e1bfb91e2581efc97
+endProcessing "net/mcreator/toklar/enchantments/FocusEnchantmentHandler.java"
+
+startProcessing "net/mcreator/toklar/enchantments/FocusRetargetHandler.java" md5: cbd9e06fe85d96c83c888c05b1ee234c
+endProcessing "net/mcreator/toklar/enchantments/FocusRetargetHandler.java"
+
+startProcessing "net/mcreator/toklar/entity/EntityMonster.java" md5: a1fdfd22b6cc9108ff9d35517dc5856b
+endProcessing "net/mcreator/toklar/entity/EntityMonster.java"
+
+startProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java" md5: 119fe8263bcb7269d18805ea5829e0f1
+endProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java"
+
+startProcessing "net/mcreator/toklar/gui/GuiHandler.java" md5: 17b63fded442b7094ef1eecb9eb7a068
+endProcessing "net/mcreator/toklar/gui/GuiHandler.java"
+
+startProcessing "net/mcreator/toklar/gui/GuiImbuementAltar.java" md5: 823b623c5a39c54c42e7c7a11c1de7a7
+endProcessing "net/mcreator/toklar/gui/GuiImbuementAltar.java"
+
+startProcessing "net/mcreator/toklar/gui/SlotImbuementOutput.java" md5: 42f7f058131507f9d4e3612d0c8afb20
+endProcessing "net/mcreator/toklar/gui/SlotImbuementOutput.java"
+
+startProcessing "net/mcreator/toklar/imbuement/WeaponImbuementHandler.java" md5: 802f8b0d260c113f769281708dba0199
+endProcessing "net/mcreator/toklar/imbuement/WeaponImbuementHandler.java"
+
+startProcessing "net/mcreator/toklar/imbuement/WeaponImbuementTooltipHandler.java" md5: e75279945efd68c4f3c19e6f8b18c288
+endProcessing "net/mcreator/toklar/imbuement/WeaponImbuementTooltipHandler.java"
+
+startProcessing "net/mcreator/toklar/init/EnchantmentInit.java" md5: 4b1623bcd25e811e524f3f06b4fd5b72
+endProcessing "net/mcreator/toklar/init/EnchantmentInit.java"
+
+startProcessing "net/mcreator/toklar/init/ModBlocks.java" md5: f3e30af43a265a2be4652408c10e6d1e
+endProcessing "net/mcreator/toklar/init/ModBlocks.java"
+
+startProcessing "net/mcreator/toklar/init/ModRecipes.java" md5: 78573a6611b41fd3fdf2188c472dc340
+endProcessing "net/mcreator/toklar/init/ModRecipes.java"
+
+startProcessing "net/mcreator/toklar/item/ItemBronzeArmor.java" md5: f5980cac8b784fe33c876cbf673e20bb
+endProcessing "net/mcreator/toklar/item/ItemBronzeArmor.java"
+
+startProcessing "net/mcreator/toklar/item/ItemSummonClanky.java" md5: 6f5e23cde987367cac8b3b61647e1779
+endProcessing "net/mcreator/toklar/item/ItemSummonClanky.java"
+
+startProcessing "net/mcreator/toklar/item/ItemSummonClankyElement.java" md5: 0bcd56efa4fa899aaeb55b60c07dc3df
+endProcessing "net/mcreator/toklar/item/ItemSummonClankyElement.java"
+
+startProcessing "net/mcreator/toklar/item/ItemToklarArmor.java" md5: bab2773e0a9d72969c3f51f5ee369f97
+endProcessing "net/mcreator/toklar/item/ItemToklarArmor.java"
+
+startProcessing "net/mcreator/toklar/tile/TileEntityImbuementAltar.java" md5: 3f35188620c6559ea035872b2693d30d
+endProcessing "net/mcreator/toklar/tile/TileEntityImbuementAltar.java"
+
+startProcessing "net/mcreator/toklar/util/FocusTracker.java" md5: 40cea1103a2bbef3d5c8eeaceb252aff
+endProcessing "net/mcreator/toklar/util/FocusTracker.java"
+
+startProcessing "net/mcreator/toklar/util/LycanitePartEffectRegistry.java" md5: 358f1720e3d54a3d38cc525775ef6738
+endProcessing "net/mcreator/toklar/util/LycanitePartEffectRegistry.java"
+
+startProcessing "net/mcreator/toklar/util/WizardSpawnHandler.java" md5: ebc36569ca5a5ac9a90e923e721752ff
+endProcessing "net/mcreator/toklar/util/WizardSpawnHandler.java"
+

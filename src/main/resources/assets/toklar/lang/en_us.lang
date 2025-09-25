@@ -1,0 +1,26 @@
+item.toklararmorboots.name=Toklar Boots
+entity.monster.name=Monster
+item.toklararmorbody.name=Toklar Chestplate
+item.toklararmorlegs.name=Toklar Leggings
+item.toklararmorhelmet.name=Toklar Helmet
+item.bronzearmorlegs.name=Bronze Armor Leggings
+item.bronzearmorbody.name=Bronze Armor Body
+item.bronzearmorhelmet.name=Bronze Armor Helmet
+item.bronzearmorboots.name=Bronze Armor Boots
+tile.monster_candle.name=Monster Candle
+tile.imbuement_altar.name=Imbuement Altar
+# =========================
+# Enchantments 
+# =========================
+# Focus
+enchantment.toklar.focus=Focus
+enchantment.toklar.focus.desc=Increases spellcasting potency.
+# Reach 
+enchantment.toklar.reach=Reach
+enchantment.toklar.reach.desc=Extends your block and entity interaction distance.
+# Heroic
+enchantment.toklar.heroic=Heroic
+enchantment.toklar.heroic.desc=On kill: Restore 5%% of target max HP (min 1). Each enchanted piece (weapon, offhand, helmet, chest) adds +1 heal, up to 3 pieces. Total heal capped at 10 hearts.
+# Arcane Leech
+enchantment.toklar.arcane_leech=Arcane Leech
+enchantment.toklar.arcane_leech.desc=When dealing magic damage, restore 3%% of damage dealt per level.
