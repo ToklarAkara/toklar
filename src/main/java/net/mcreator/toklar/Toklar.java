@@ -28,6 +28,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.block.Block;
 import net.mcreator.toklar.enchantments.FocusRetargetHandler;
+import net.mcreator.toklar.events.DropScalingHandler;
 import net.mcreator.toklar.gui.GuiHandler;
 import net.mcreator.toklar.imbuement.WeaponImbuementHandler;
 import net.mcreator.toklar.imbuement.WeaponImbuementTooltipHandler;
@@ -44,7 +45,7 @@ import net.minecraft.util.ResourceLocation;
 @Mod(modid = Toklar.MODID, version = Toklar.VERSION)
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.1.9";
+    public static final String VERSION = "1.1.10";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -75,7 +76,15 @@ public class Toklar {
             ModConfig.enableSummonDamageBuffDebug,
             "Enable debug messages for SummonDamageBuffHandler"
         );
-
+        float lootMultiplier = config.getFloat(
+        	    "lootMultiplierPerDifficulty",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.getLootMultiplierPerDifficulty(),
+        	    0.0F, 1.0F,
+        	    "Loot multiplier per 1 point of Scaling Health difficulty (e.g., 0.01 = +1% per point)"
+        	);
+        	ModConfig.setLootMultiplierPerDifficulty(lootMultiplier);
+        	
         float bronzeMultiplier = config.getFloat(
             "summonDamageMultiplierBronze",
             Configuration.CATEGORY_GENERAL,
@@ -119,6 +128,7 @@ public class Toklar {
             MinecraftForge.EVENT_BUS.register(new WeaponImbuementHandler());
             MinecraftForge.EVENT_BUS.register(new EnchantReach());
         MinecraftForge.EVENT_BUS.register(new StructureTradeFixer());
+        MinecraftForge.EVENT_BUS.register(new DropScalingHandler());
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(net.mcreator.toklar.init.EnchantmentInit.class);
         MinecraftForge.EVENT_BUS.register(new FocusRetargetHandler());

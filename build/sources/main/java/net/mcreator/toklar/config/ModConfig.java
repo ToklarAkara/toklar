@@ -44,7 +44,18 @@ public class ModConfig {
         if (bonus > 10.0F) bonus = 10.0F;  // sane cap
         focusBonusDamagePerLevel = bonus;
     }
+ // Loot multiplier per 1 point of Scaling Health difficulty (e.g., 0.01 = +1% per point)
+    private static float lootMultiplierPerDifficulty = 0.01F;
 
+    public static float getLootMultiplierPerDifficulty() {
+        return lootMultiplierPerDifficulty;
+    }
+
+    public static void setLootMultiplierPerDifficulty(float multiplier) {
+        if (multiplier < 0.0F) multiplier = 0.0F;
+        else if (multiplier > 1.0F) multiplier = 1.0F; // max 100% per point
+        lootMultiplierPerDifficulty = multiplier;
+    }
     public static float getFocusDurationSecondsPerLevel() {
         return focusDurationSecondsPerLevel;
     }
