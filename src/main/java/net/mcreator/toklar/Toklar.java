@@ -76,14 +76,6 @@ public class Toklar {
             ModConfig.enableSummonDamageBuffDebug,
             "Enable debug messages for SummonDamageBuffHandler"
         );
-        float lootMultiplier = config.getFloat(
-        	    "lootMultiplierPerDifficulty",
-        	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.getLootMultiplierPerDifficulty(),
-        	    0.0F, 1.0F,
-        	    "Loot multiplier per 1 point of Scaling Health difficulty (e.g., 0.01 = +1% per point)"
-        	);
-        	ModConfig.setLootMultiplierPerDifficulty(lootMultiplier);
         	
         float bronzeMultiplier = config.getFloat(
             "summonDamageMultiplierBronze",
