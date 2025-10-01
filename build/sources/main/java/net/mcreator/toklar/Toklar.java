@@ -45,7 +45,7 @@ import net.minecraft.util.ResourceLocation;
 @Mod(modid = Toklar.MODID, version = Toklar.VERSION)
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.1.10";
+    public static final String VERSION = "1.1.11";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -76,14 +76,6 @@ public class Toklar {
             ModConfig.enableSummonDamageBuffDebug,
             "Enable debug messages for SummonDamageBuffHandler"
         );
-        float lootMultiplier = config.getFloat(
-        	    "lootMultiplierPerDifficulty",
-        	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.getLootMultiplierPerDifficulty(),
-        	    0.0F, 1.0F,
-        	    "Loot multiplier per 1 point of Scaling Health difficulty (e.g., 0.01 = +1% per point)"
-        	);
-        	ModConfig.setLootMultiplierPerDifficulty(lootMultiplier);
         	
         float bronzeMultiplier = config.getFloat(
             "summonDamageMultiplierBronze",

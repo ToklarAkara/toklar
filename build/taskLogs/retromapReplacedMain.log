@@ -203,7 +203,7 @@ Start Processing: net/mcreator/toklar/Toklar.java
 New Key: class net/minecraftforge/fml/common/Mod
 New Key: class net/minecraftforge/fml/common/Mod
 New Key: class net/minecraftforge/fml/common/Mod
-Rename method net/minecraft/world/storage/loot/LootTableList/register (Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/ResourceLocation;[6801,6809]::register->func_186375_a
+Rename method net/minecraft/world/storage/loot/LootTableList/register (Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/ResourceLocation;[6394,6402]::register->func_186375_a
 New Key: class net/minecraftforge/fml/common/Mod
 New Key: class net/minecraftforge/fml/common/Mod
 New Key: class net/minecraftforge/event/RegistryEvent
@@ -949,18 +949,18 @@ Import: net.minecraft.init.MobEffects
 End  Processing: net/mcreator/toklar/entity/EntityMonster.java
 
 Start Processing: net/mcreator/toklar/events/DropScalingHandler.java
-Rename field net/minecraft/entity/Entity/world[649,654]::world->field_70170_p
-Rename method net/minecraft/world/World/getGameRules ()Lnet/minecraft/world/GameRules;[663,675]::getGameRules->func_82736_K
-Rename method net/minecraft/world/GameRules/getInt (Ljava/lang/String;)I[678,684]::getInt->func_180263_c
-Rename method net/minecraft/entity/item/EntityItem/getItem ()Lnet/minecraft/item/ItemStack;[967,974]::getItem->func_92059_d
-Rename method net/minecraft/item/ItemStack/setCount (I)V[1002,1010]::setCount->func_190920_e
-Rename method net/minecraft/item/ItemStack/getCount ()I[1033,1041]::getCount->func_190916_E
+Rename method net/minecraft/nbt/NBTTagCompound/getShort (Ljava/lang/String;)S[753,761]::getShort->func_74765_d
+New Key: class net/silentchaos512/scalinghealth/config/Config
+Rename method net/minecraft/entity/item/EntityItem/getItem ()Lnet/minecraft/item/ItemStack;[1001,1008]::getItem->func_92059_d
+Rename method net/minecraft/item/ItemStack/setCount (I)V[1036,1044]::setCount->func_190920_e
+Rename method net/minecraft/item/ItemStack/getCount ()I[1067,1075]::getCount->func_190916_E
 Import: net.minecraft.entity.item.EntityItem
 Import: net.minecraft.entity.monster.IMob
+Import: net.minecraft.entity.EntityLivingBase
 Import: net.minecraft.item.ItemStack
-Import: net.minecraft.world.GameRules
 Import: net.minecraftforge.event.entity.living.LivingDropsEvent
 Import: net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+Import: net.silentchaos512.scalinghealth.config.Config
 End  Processing: net/mcreator/toklar/events/DropScalingHandler.java
 
 Start Processing: net/mcreator/toklar/gui/ContainerImbuementAltar.java

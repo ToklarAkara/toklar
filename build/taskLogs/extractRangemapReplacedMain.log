@@ -24,7 +24,7 @@ endProcessing "net/mcreator/toklar/StructureTradeFixerMod.java"
 startProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java" md5: 1fedbe2b176870f488c0ad5ea6253445
 endProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java"
 
-startProcessing "net/mcreator/toklar/Toklar.java" md5: 285b0e2d0a72e70ece67fa708cddb959
+startProcessing "net/mcreator/toklar/Toklar.java" md5: 0f8d524cf2d1edc2df73a01dd35bbf6d
 endProcessing "net/mcreator/toklar/Toklar.java"
 
 startProcessing "net/mcreator/toklar/ToklarVariables.java" md5: a29b00d88913dfb8f6e544f582bde268
@@ -45,7 +45,7 @@ endProcessing "net/mcreator/toklar/client/ClientModelRegistry.java"
 startProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java" md5: 60334514a6c27a1eb56d29053820a5be
 endProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java"
 
-startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: bd3cb5c6e0fb45732f05faf5fcef98ca
+startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: 5c417c65b473fbd49dbc1a46026329da
 endProcessing "net/mcreator/toklar/config/ModConfig.java"
 
 startProcessing "net/mcreator/toklar/enchantments/EnchantArcaneLeech.java" md5: 393b733d72bc2df3e661f35acfe0f164
@@ -69,7 +69,7 @@ endProcessing "net/mcreator/toklar/enchantments/FocusRetargetHandler.java"
 startProcessing "net/mcreator/toklar/entity/EntityMonster.java" md5: a1fdfd22b6cc9108ff9d35517dc5856b
 endProcessing "net/mcreator/toklar/entity/EntityMonster.java"
 
-startProcessing "net/mcreator/toklar/events/DropScalingHandler.java" md5: 7d04d84fd7c0f32b9600847b779999de
+startProcessing "net/mcreator/toklar/events/DropScalingHandler.java" md5: 3c9d017d274580f204ede3f4977b8dc1
 endProcessing "net/mcreator/toklar/events/DropScalingHandler.java"
 
 startProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java" md5: 119fe8263bcb7269d18805ea5829e0f1

@@ -961,7 +961,7 @@ Class Start: net.mcreator.toklar.SummonDamageBuffHandler
 Class End  : net.mcreator.toklar.SummonDamageBuffHandler
 endProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java"
 
-startProcessing "net/mcreator/toklar/Toklar.java" md5: 285b0e2d0a72e70ece67fa708cddb959
+startProcessing "net/mcreator/toklar/Toklar.java" md5: 0f8d524cf2d1edc2df73a01dd35bbf6d
 @|net/mcreator/toklar/Toklar.java|8|27|net.mcreator.toklar|package|net.mcreator.toklar|(file)
 Class Start: net.mcreator.toklar.Toklar
    @|net/mcreator/toklar/Toklar.java|2148|2151|Mod|class|net.minecraftforge.fml.common.Mod|false
@@ -1026,281 +1026,273 @@ Class Start: net.mcreator.toklar.Toklar
       @|net/mcreator/toklar/Toklar.java|3332|3348|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
       @|net/mcreator/toklar/Toklar.java|3363|3372|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
       @|net/mcreator/toklar/Toklar.java|3373|3400|enableSummonDamageBuffDebug|field|net.mcreator.toklar.config.ModConfig|enableSummonDamageBuffDebug
-      @|net/mcreator/toklar/Toklar.java|3511|3517|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|3518|3526|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
-      @|net/mcreator/toklar/Toklar.java|3587|3600|Configuration|class|net.minecraftforge.common.config.Configuration|false
-      @|net/mcreator/toklar/Toklar.java|3601|3617|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
-      @|net/mcreator/toklar/Toklar.java|3633|3642|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|3643|3673|getLootMultiplierPerDifficulty|method|net.mcreator.toklar.config.ModConfig|getLootMultiplierPerDifficulty|()F
-      @|net/mcreator/toklar/Toklar.java|3828|3837|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|3838|3868|setLootMultiplierPerDifficulty|method|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V
-      @|net/mcreator/toklar/Toklar.java|3931|3937|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|3938|3946|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
-      @|net/mcreator/toklar/Toklar.java|4006|4019|Configuration|class|net.minecraftforge.common.config.Configuration|false
-      @|net/mcreator/toklar/Toklar.java|4020|4036|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
-      @|net/mcreator/toklar/Toklar.java|4051|4060|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4061|4086|getSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|getSummonDamageMultiplier|()F
-      @|net/mcreator/toklar/Toklar.java|4214|4223|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4224|4249|setSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|setSummonDamageMultiplier|(F)V
-      @|net/mcreator/toklar/Toklar.java|4305|4311|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|4312|4320|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
-      @|net/mcreator/toklar/Toklar.java|4380|4393|Configuration|class|net.minecraftforge.common.config.Configuration|false
-      @|net/mcreator/toklar/Toklar.java|4394|4410|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
-      @|net/mcreator/toklar/Toklar.java|4425|4434|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4435|4466|getToklarSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|getToklarSummonDamageMultiplier|()F
-      @|net/mcreator/toklar/Toklar.java|4594|4603|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4604|4635|setToklarSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|setToklarSummonDamageMultiplier|(F)V
-      @|net/mcreator/toklar/Toklar.java|4687|4693|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|4694|4702|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
-      @|net/mcreator/toklar/Toklar.java|4760|4773|Configuration|class|net.minecraftforge.common.config.Configuration|false
-      @|net/mcreator/toklar/Toklar.java|4774|4790|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
-      @|net/mcreator/toklar/Toklar.java|4806|4815|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4816|4843|getFocusBonusDamagePerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusBonusDamagePerLevel|()F
-      @|net/mcreator/toklar/Toklar.java|4975|4984|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|4985|5012|setFocusBonusDamagePerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusBonusDamagePerLevel|(F)V
-      @|net/mcreator/toklar/Toklar.java|5060|5066|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|5067|5075|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
-      @|net/mcreator/toklar/Toklar.java|5137|5150|Configuration|class|net.minecraftforge.common.config.Configuration|false
-      @|net/mcreator/toklar/Toklar.java|5151|5167|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
-      @|net/mcreator/toklar/Toklar.java|5183|5192|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|5193|5224|getFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusDurationSecondsPerLevel|()F
-      @|net/mcreator/toklar/Toklar.java|5363|5372|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
-      @|net/mcreator/toklar/Toklar.java|5373|5404|setFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V
-      @|net/mcreator/toklar/Toklar.java|5438|5444|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|5445|5455|hasChanged|method|net.minecraftforge.common.config.Configuration|hasChanged|()Z
-      @|net/mcreator/toklar/Toklar.java|5478|5484|config|field|net.mcreator.toklar.Toklar|config
-      @|net/mcreator/toklar/Toklar.java|5485|5489|save|method|net.minecraftforge.common.config.Configuration|save|()V
-      @|net/mcreator/toklar/Toklar.java|5580|5594|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5595|5604|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5605|5613|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5618|5640|WeaponImbuementHandler|class|net.mcreator.toklar.imbuement.WeaponImbuementHandler|false
-      @|net/mcreator/toklar/Toklar.java|5658|5672|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5673|5682|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5683|5691|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5696|5708|EnchantReach|class|net.mcreator.toklar.enchantments.EnchantReach|false
-      @|net/mcreator/toklar/Toklar.java|5722|5736|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5737|5746|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5747|5755|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5760|5779|StructureTradeFixer|class|net.mcreator.toklar.StructureTradeFixer|false
-      @|net/mcreator/toklar/Toklar.java|5793|5807|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5808|5817|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5818|5826|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5831|5849|DropScalingHandler|class|net.mcreator.toklar.events.DropScalingHandler|false
-      @|net/mcreator/toklar/Toklar.java|5863|5877|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5878|5887|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5888|5896|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5913|5927|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|5928|5937|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|5938|5946|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|5947|5987|net.mcreator.toklar.init.EnchantmentInit|class|net.mcreator.toklar.init.EnchantmentInit|false
-      @|net/mcreator/toklar/Toklar.java|6005|6019|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|6020|6029|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|6030|6038|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|6043|6063|FocusRetargetHandler|class|net.mcreator.toklar.enchantments.FocusRetargetHandler|false
-      @|net/mcreator/toklar/Toklar.java|6077|6091|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|6092|6101|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|6102|6110|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|6115|6138|FocusEnchantmentHandler|class|net.mcreator.toklar.enchantments.FocusEnchantmentHandler|false
-      @|net/mcreator/toklar/Toklar.java|6152|6167|NetworkRegistry|class|net.minecraftforge.fml.common.network.NetworkRegistry|false
-      @|net/mcreator/toklar/Toklar.java|6168|6176|INSTANCE|field|net.minecraftforge.fml.common.network.NetworkRegistry|INSTANCE
-      @|net/mcreator/toklar/Toklar.java|6177|6195|registerGuiHandler|method|net.minecraftforge.fml.common.network.NetworkRegistry|registerGuiHandler|(Ljava/lang/Object;Lnet/minecraftforge/fml/common/network/IGuiHandler;)V
-      @|net/mcreator/toklar/Toklar.java|6206|6216|GuiHandler|class|net.mcreator.toklar.gui.GuiHandler|false
-      @|net/mcreator/toklar/Toklar.java|6230|6242|GameRegistry|class|net.minecraftforge.fml.common.registry.GameRegistry|false
-      @|net/mcreator/toklar/Toklar.java|6243|6265|registerWorldGenerator|method|net.minecraftforge.fml.common.registry.GameRegistry|registerWorldGenerator|(Lnet/minecraftforge/fml/common/IWorldGenerator;I)V
-      @|net/mcreator/toklar/Toklar.java|6266|6274|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6289|6301|GameRegistry|class|net.minecraftforge.fml.common.registry.GameRegistry|false
-      @|net/mcreator/toklar/Toklar.java|6302|6321|registerFuelHandler|method|net.minecraftforge.fml.common.registry.GameRegistry|registerFuelHandler|(Lnet/minecraftforge/fml/common/IFuelHandler;)V
-      @|net/mcreator/toklar/Toklar.java|6322|6330|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6342|6351|ModBlocks|class|net.mcreator.toklar.init.ModBlocks|false
-      @|net/mcreator/toklar/Toklar.java|6352|6359|preInit|method|net.mcreator.toklar.init.ModBlocks|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6360|6365|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6377|6385|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6386|6393|preInit|method|net.mcreator.toklar.ElementsToklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6394|6399|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6411|6425|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|6426|6435|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|6436|6444|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|6445|6453|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6465|6473|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6474|6485|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|6488|6495|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
-      @|net/mcreator/toklar/Toklar.java|6507|6514|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
-      @|net/mcreator/toklar/Toklar.java|6515|6522|preInit|method|net.mcreator.toklar.ElementsToklar.ModElement|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6523|6528|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6541|6546|proxy|field|net.mcreator.toklar.Toklar|proxy
-      @|net/mcreator/toklar/Toklar.java|6547|6554|preInit|method|net.mcreator.toklar.IProxyToklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6555|6560|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|3524|3530|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|3531|3539|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
+      @|net/mcreator/toklar/Toklar.java|3599|3612|Configuration|class|net.minecraftforge.common.config.Configuration|false
+      @|net/mcreator/toklar/Toklar.java|3613|3629|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
+      @|net/mcreator/toklar/Toklar.java|3644|3653|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|3654|3679|getSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|getSummonDamageMultiplier|()F
+      @|net/mcreator/toklar/Toklar.java|3807|3816|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|3817|3842|setSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|setSummonDamageMultiplier|(F)V
+      @|net/mcreator/toklar/Toklar.java|3898|3904|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|3905|3913|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
+      @|net/mcreator/toklar/Toklar.java|3973|3986|Configuration|class|net.minecraftforge.common.config.Configuration|false
+      @|net/mcreator/toklar/Toklar.java|3987|4003|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
+      @|net/mcreator/toklar/Toklar.java|4018|4027|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4028|4059|getToklarSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|getToklarSummonDamageMultiplier|()F
+      @|net/mcreator/toklar/Toklar.java|4187|4196|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4197|4228|setToklarSummonDamageMultiplier|method|net.mcreator.toklar.config.ModConfig|setToklarSummonDamageMultiplier|(F)V
+      @|net/mcreator/toklar/Toklar.java|4280|4286|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|4287|4295|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
+      @|net/mcreator/toklar/Toklar.java|4353|4366|Configuration|class|net.minecraftforge.common.config.Configuration|false
+      @|net/mcreator/toklar/Toklar.java|4367|4383|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
+      @|net/mcreator/toklar/Toklar.java|4399|4408|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4409|4436|getFocusBonusDamagePerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusBonusDamagePerLevel|()F
+      @|net/mcreator/toklar/Toklar.java|4568|4577|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4578|4605|setFocusBonusDamagePerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusBonusDamagePerLevel|(F)V
+      @|net/mcreator/toklar/Toklar.java|4653|4659|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|4660|4668|getFloat|method|net.minecraftforge.common.config.Configuration|getFloat|(Ljava/lang/String;Ljava/lang/String;FFFLjava/lang/String;)F
+      @|net/mcreator/toklar/Toklar.java|4730|4743|Configuration|class|net.minecraftforge.common.config.Configuration|false
+      @|net/mcreator/toklar/Toklar.java|4744|4760|CATEGORY_GENERAL|field|net.minecraftforge.common.config.Configuration|CATEGORY_GENERAL
+      @|net/mcreator/toklar/Toklar.java|4776|4785|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4786|4817|getFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusDurationSecondsPerLevel|()F
+      @|net/mcreator/toklar/Toklar.java|4956|4965|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
+      @|net/mcreator/toklar/Toklar.java|4966|4997|setFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V
+      @|net/mcreator/toklar/Toklar.java|5031|5037|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|5038|5048|hasChanged|method|net.minecraftforge.common.config.Configuration|hasChanged|()Z
+      @|net/mcreator/toklar/Toklar.java|5071|5077|config|field|net.mcreator.toklar.Toklar|config
+      @|net/mcreator/toklar/Toklar.java|5078|5082|save|method|net.minecraftforge.common.config.Configuration|save|()V
+      @|net/mcreator/toklar/Toklar.java|5173|5187|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5188|5197|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5198|5206|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5211|5233|WeaponImbuementHandler|class|net.mcreator.toklar.imbuement.WeaponImbuementHandler|false
+      @|net/mcreator/toklar/Toklar.java|5251|5265|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5266|5275|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5276|5284|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5289|5301|EnchantReach|class|net.mcreator.toklar.enchantments.EnchantReach|false
+      @|net/mcreator/toklar/Toklar.java|5315|5329|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5330|5339|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5340|5348|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5353|5372|StructureTradeFixer|class|net.mcreator.toklar.StructureTradeFixer|false
+      @|net/mcreator/toklar/Toklar.java|5386|5400|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5401|5410|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5411|5419|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5424|5442|DropScalingHandler|class|net.mcreator.toklar.events.DropScalingHandler|false
+      @|net/mcreator/toklar/Toklar.java|5456|5470|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5471|5480|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5481|5489|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5506|5520|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5521|5530|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5531|5539|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5540|5580|net.mcreator.toklar.init.EnchantmentInit|class|net.mcreator.toklar.init.EnchantmentInit|false
+      @|net/mcreator/toklar/Toklar.java|5598|5612|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5613|5622|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5623|5631|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5636|5656|FocusRetargetHandler|class|net.mcreator.toklar.enchantments.FocusRetargetHandler|false
+      @|net/mcreator/toklar/Toklar.java|5670|5684|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|5685|5694|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|5695|5703|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|5708|5731|FocusEnchantmentHandler|class|net.mcreator.toklar.enchantments.FocusEnchantmentHandler|false
+      @|net/mcreator/toklar/Toklar.java|5745|5760|NetworkRegistry|class|net.minecraftforge.fml.common.network.NetworkRegistry|false
+      @|net/mcreator/toklar/Toklar.java|5761|5769|INSTANCE|field|net.minecraftforge.fml.common.network.NetworkRegistry|INSTANCE
+      @|net/mcreator/toklar/Toklar.java|5770|5788|registerGuiHandler|method|net.minecraftforge.fml.common.network.NetworkRegistry|registerGuiHandler|(Ljava/lang/Object;Lnet/minecraftforge/fml/common/network/IGuiHandler;)V
+      @|net/mcreator/toklar/Toklar.java|5799|5809|GuiHandler|class|net.mcreator.toklar.gui.GuiHandler|false
+      @|net/mcreator/toklar/Toklar.java|5823|5835|GameRegistry|class|net.minecraftforge.fml.common.registry.GameRegistry|false
+      @|net/mcreator/toklar/Toklar.java|5836|5858|registerWorldGenerator|method|net.minecraftforge.fml.common.registry.GameRegistry|registerWorldGenerator|(Lnet/minecraftforge/fml/common/IWorldGenerator;I)V
+      @|net/mcreator/toklar/Toklar.java|5859|5867|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|5882|5894|GameRegistry|class|net.minecraftforge.fml.common.registry.GameRegistry|false
+      @|net/mcreator/toklar/Toklar.java|5895|5914|registerFuelHandler|method|net.minecraftforge.fml.common.registry.GameRegistry|registerFuelHandler|(Lnet/minecraftforge/fml/common/IFuelHandler;)V
+      @|net/mcreator/toklar/Toklar.java|5915|5923|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|5935|5944|ModBlocks|class|net.mcreator.toklar.init.ModBlocks|false
+      @|net/mcreator/toklar/Toklar.java|5945|5952|preInit|method|net.mcreator.toklar.init.ModBlocks|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|5953|5958|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|5970|5978|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|5979|5986|preInit|method|net.mcreator.toklar.ElementsToklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|5987|5992|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6004|6018|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|6019|6028|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|6029|6037|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|6038|6046|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|6058|6066|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|6067|6078|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|6081|6088|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
+      @|net/mcreator/toklar/Toklar.java|6100|6107|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
+      @|net/mcreator/toklar/Toklar.java|6108|6115|preInit|method|net.mcreator.toklar.ElementsToklar.ModElement|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6116|6121|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6134|6139|proxy|field|net.mcreator.toklar.Toklar|proxy
+      @|net/mcreator/toklar/Toklar.java|6140|6147|preInit|method|net.mcreator.toklar.IProxyToklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6148|6153|event|param|net.mcreator.toklar.Toklar|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
    Method End: preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
    Method Start: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6640|6645|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6578|6594|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
-      @|net/mcreator/toklar/Toklar.java|6612|6616|init|method|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6617|6639|FMLInitializationEvent|class|net.minecraftforge.fml.common.event.FMLInitializationEvent|false
-      @|net/mcreator/toklar/Toklar.java|6658|6666|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|6667|6678|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|6681|6688|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
-      @|net/mcreator/toklar/Toklar.java|6700|6707|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
-      @|net/mcreator/toklar/Toklar.java|6708|6712|init|method|net.mcreator.toklar.ElementsToklar.ModElement|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6713|6718|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6731|6736|proxy|field|net.mcreator.toklar.Toklar|proxy
-      @|net/mcreator/toklar/Toklar.java|6737|6741|init|method|net.mcreator.toklar.IProxyToklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|6742|6747|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|6759|6769|ModRecipes|class|net.mcreator.toklar.init.ModRecipes|false
-      @|net/mcreator/toklar/Toklar.java|6770|6774|init|method|net.mcreator.toklar.init.ModRecipes|init|()V
-      @|net/mcreator/toklar/Toklar.java|6787|6800|LootTableList|class|net.minecraft.world.storage.loot.LootTableList|false
-      @|net/mcreator/toklar/Toklar.java|6801|6809|register|method|net.minecraft.world.storage.loot.LootTableList|register|(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/ResourceLocation;
-      @|net/mcreator/toklar/Toklar.java|6814|6830|ResourceLocation|class|net.minecraft.util.ResourceLocation|false
-      @|net/mcreator/toklar/Toklar.java|6871|6885|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
-      @|net/mcreator/toklar/Toklar.java|6886|6895|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|net/mcreator/toklar/Toklar.java|6896|6904|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|net/mcreator/toklar/Toklar.java|6909|6928|StructureTradeFixer|class|net.mcreator.toklar.StructureTradeFixer|false
-      @|net/mcreator/toklar/Toklar.java|6942|6968|LycanitePartEffectRegistry|class|net.mcreator.toklar.util.LycanitePartEffectRegistry|false
-      @|net/mcreator/toklar/Toklar.java|6969|6976|loadAll|method|net.mcreator.toklar.util.LycanitePartEffectRegistry|loadAll|()V
-      @|net/mcreator/toklar/Toklar.java|6989|6995|System|class|java.lang.System|false
-      @|net/mcreator/toklar/Toklar.java|6996|6999|out|field|java.lang.System|out
-      @|net/mcreator/toklar/Toklar.java|7000|7007|println|method|java.io.PrintStream|println|(Ljava/lang/String;)V
+      @|net/mcreator/toklar/Toklar.java|6233|6238|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6171|6187|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
+      @|net/mcreator/toklar/Toklar.java|6205|6209|init|method|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6210|6232|FMLInitializationEvent|class|net.minecraftforge.fml.common.event.FMLInitializationEvent|false
+      @|net/mcreator/toklar/Toklar.java|6251|6259|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|6260|6271|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|6274|6281|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
+      @|net/mcreator/toklar/Toklar.java|6293|6300|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
+      @|net/mcreator/toklar/Toklar.java|6301|6305|init|method|net.mcreator.toklar.ElementsToklar.ModElement|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6306|6311|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6324|6329|proxy|field|net.mcreator.toklar.Toklar|proxy
+      @|net/mcreator/toklar/Toklar.java|6330|6334|init|method|net.mcreator.toklar.IProxyToklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6335|6340|event|param|net.mcreator.toklar.Toklar|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6352|6362|ModRecipes|class|net.mcreator.toklar.init.ModRecipes|false
+      @|net/mcreator/toklar/Toklar.java|6363|6367|init|method|net.mcreator.toklar.init.ModRecipes|init|()V
+      @|net/mcreator/toklar/Toklar.java|6380|6393|LootTableList|class|net.minecraft.world.storage.loot.LootTableList|false
+      @|net/mcreator/toklar/Toklar.java|6394|6402|register|method|net.minecraft.world.storage.loot.LootTableList|register|(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraft/util/ResourceLocation;
+      @|net/mcreator/toklar/Toklar.java|6407|6423|ResourceLocation|class|net.minecraft.util.ResourceLocation|false
+      @|net/mcreator/toklar/Toklar.java|6464|6478|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|net/mcreator/toklar/Toklar.java|6479|6488|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|net/mcreator/toklar/Toklar.java|6489|6497|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|net/mcreator/toklar/Toklar.java|6502|6521|StructureTradeFixer|class|net.mcreator.toklar.StructureTradeFixer|false
+      @|net/mcreator/toklar/Toklar.java|6535|6561|LycanitePartEffectRegistry|class|net.mcreator.toklar.util.LycanitePartEffectRegistry|false
+      @|net/mcreator/toklar/Toklar.java|6562|6569|loadAll|method|net.mcreator.toklar.util.LycanitePartEffectRegistry|loadAll|()V
+      @|net/mcreator/toklar/Toklar.java|6582|6588|System|class|java.lang.System|false
+      @|net/mcreator/toklar/Toklar.java|6589|6592|out|field|java.lang.System|out
+      @|net/mcreator/toklar/Toklar.java|6593|6600|println|method|java.io.PrintStream|println|(Ljava/lang/String;)V
    Method End: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
    Method Start: postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7192|7197|event|param|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7122|7138|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
-      @|net/mcreator/toklar/Toklar.java|7156|7164|postInit|method|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7165|7191|FMLPostInitializationEvent|class|net.minecraftforge.fml.common.event.FMLPostInitializationEvent|false
-      @|net/mcreator/toklar/Toklar.java|7210|7215|proxy|field|net.mcreator.toklar.Toklar|proxy
-      @|net/mcreator/toklar/Toklar.java|7216|7224|postInit|method|net.mcreator.toklar.IProxyToklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7225|7230|event|param|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6785|6790|event|param|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6715|6731|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
+      @|net/mcreator/toklar/Toklar.java|6749|6757|postInit|method|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6758|6784|FMLPostInitializationEvent|class|net.minecraftforge.fml.common.event.FMLPostInitializationEvent|false
+      @|net/mcreator/toklar/Toklar.java|6803|6808|proxy|field|net.mcreator.toklar.Toklar|proxy
+      @|net/mcreator/toklar/Toklar.java|6809|6817|postInit|method|net.mcreator.toklar.IProxyToklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6818|6823|event|param|net.mcreator.toklar.Toklar|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V|event|0
    Method End: postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
    Method Start: serverLoad(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7316|7321|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7248|7264|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
-      @|net/mcreator/toklar/Toklar.java|7282|7292|serverLoad|method|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7293|7315|FMLServerStartingEvent|class|net.minecraftforge.fml.common.event.FMLServerStartingEvent|false
-      @|net/mcreator/toklar/Toklar.java|7334|7342|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|7343|7354|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|7357|7364|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
-      @|net/mcreator/toklar/Toklar.java|7376|7383|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
-      @|net/mcreator/toklar/Toklar.java|7384|7394|serverLoad|method|net.mcreator.toklar.ElementsToklar.ModElement|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7395|7400|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7413|7418|proxy|field|net.mcreator.toklar.Toklar|proxy
-      @|net/mcreator/toklar/Toklar.java|7419|7429|serverLoad|method|net.mcreator.toklar.IProxyToklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|net/mcreator/toklar/Toklar.java|7430|7435|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6909|6914|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|6841|6857|Mod.EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
+      @|net/mcreator/toklar/Toklar.java|6875|6885|serverLoad|method|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6886|6908|FMLServerStartingEvent|class|net.minecraftforge.fml.common.event.FMLServerStartingEvent|false
+      @|net/mcreator/toklar/Toklar.java|6927|6935|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|6936|6947|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|6950|6957|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
+      @|net/mcreator/toklar/Toklar.java|6969|6976|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
+      @|net/mcreator/toklar/Toklar.java|6977|6987|serverLoad|method|net.mcreator.toklar.ElementsToklar.ModElement|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
+      @|net/mcreator/toklar/Toklar.java|6988|6993|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7006|7011|proxy|field|net.mcreator.toklar.Toklar|proxy
+      @|net/mcreator/toklar/Toklar.java|7012|7022|serverLoad|method|net.mcreator.toklar.IProxyToklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
+      @|net/mcreator/toklar/Toklar.java|7023|7028|event|param|net.mcreator.toklar.Toklar|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
    Method End: serverLoad(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
    Method Start: registerBlocks(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7535|7540|event|param|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7458|7472|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|7490|7504|registerBlocks|method|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7505|7527|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|7528|7533|Block|class|net.minecraft.block.Block|false
-      @|net/mcreator/toklar/Toklar.java|7553|7558|event|param|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7559|7570|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
-      @|net/mcreator/toklar/Toklar.java|7573|7584|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
-      @|net/mcreator/toklar/Toklar.java|7585|7593|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|7594|7603|getBlocks|method|net.mcreator.toklar.ElementsToklar|getBlocks|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|7606|7612|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|7615|7618|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|7619|7627|Supplier|class|java.util.function.Supplier|false
-      @|net/mcreator/toklar/Toklar.java|7629|7632|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|7634|7641|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|7642|7647|Block|class|net.minecraft.block.Block|false
+      @|net/mcreator/toklar/Toklar.java|7128|7133|event|param|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7051|7065|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|7083|7097|registerBlocks|method|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|7098|7120|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|7121|7126|Block|class|net.minecraft.block.Block|false
+      @|net/mcreator/toklar/Toklar.java|7146|7151|event|param|net.mcreator.toklar.Toklar|registerBlocks|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7152|7163|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
+      @|net/mcreator/toklar/Toklar.java|7166|7177|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      @|net/mcreator/toklar/Toklar.java|7178|7186|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|7187|7196|getBlocks|method|net.mcreator.toklar.ElementsToklar|getBlocks|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|7199|7205|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7208|7211|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7212|7220|Supplier|class|java.util.function.Supplier|false
+      @|net/mcreator/toklar/Toklar.java|7222|7225|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7227|7234|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7235|7240|Block|class|net.minecraft.block.Block|false
    Method End: registerBlocks(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerItems(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7748|7753|event|param|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7673|7687|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|7705|7718|registerItems|method|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7719|7741|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|7742|7746|Item|class|net.minecraft.item.Item|false
-      @|net/mcreator/toklar/Toklar.java|7766|7771|event|param|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7772|7783|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
-      @|net/mcreator/toklar/Toklar.java|7786|7797|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
-      @|net/mcreator/toklar/Toklar.java|7798|7806|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|7807|7815|getItems|method|net.mcreator.toklar.ElementsToklar|getItems|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|7818|7824|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|7827|7830|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|7831|7839|Supplier|class|java.util.function.Supplier|false
-      @|net/mcreator/toklar/Toklar.java|7841|7844|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|7846|7853|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|7854|7858|Item|class|net.minecraft.item.Item|false
+      @|net/mcreator/toklar/Toklar.java|7341|7346|event|param|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7266|7280|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|7298|7311|registerItems|method|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|7312|7334|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|7335|7339|Item|class|net.minecraft.item.Item|false
+      @|net/mcreator/toklar/Toklar.java|7359|7364|event|param|net.mcreator.toklar.Toklar|registerItems|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7365|7376|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
+      @|net/mcreator/toklar/Toklar.java|7379|7390|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      @|net/mcreator/toklar/Toklar.java|7391|7399|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|7400|7408|getItems|method|net.mcreator.toklar.ElementsToklar|getItems|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|7411|7417|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7420|7423|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7424|7432|Supplier|class|java.util.function.Supplier|false
+      @|net/mcreator/toklar/Toklar.java|7434|7437|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7439|7446|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7447|7451|Item|class|net.minecraft.item.Item|false
    Method End: registerItems(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerBiomes(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7961|7966|event|param|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7884|7898|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|7916|7930|registerBiomes|method|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|7931|7953|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|7954|7959|Biome|class|net.minecraft.world.biome.Biome|false
-      @|net/mcreator/toklar/Toklar.java|7979|7984|event|param|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|7985|7996|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
-      @|net/mcreator/toklar/Toklar.java|7999|8010|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
-      @|net/mcreator/toklar/Toklar.java|8011|8019|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|8020|8029|getBiomes|method|net.mcreator.toklar.ElementsToklar|getBiomes|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|8032|8038|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8041|8044|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8045|8053|Supplier|class|java.util.function.Supplier|false
-      @|net/mcreator/toklar/Toklar.java|8055|8058|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8060|8067|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8068|8073|Biome|class|net.minecraft.world.biome.Biome|false
+      @|net/mcreator/toklar/Toklar.java|7554|7559|event|param|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7477|7491|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|7509|7523|registerBiomes|method|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|7524|7546|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|7547|7552|Biome|class|net.minecraft.world.biome.Biome|false
+      @|net/mcreator/toklar/Toklar.java|7572|7577|event|param|net.mcreator.toklar.Toklar|registerBiomes|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7578|7589|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
+      @|net/mcreator/toklar/Toklar.java|7592|7603|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      @|net/mcreator/toklar/Toklar.java|7604|7612|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|7613|7622|getBiomes|method|net.mcreator.toklar.ElementsToklar|getBiomes|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|7625|7631|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7634|7637|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7638|7646|Supplier|class|java.util.function.Supplier|false
+      @|net/mcreator/toklar/Toklar.java|7648|7651|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7653|7660|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7661|7666|Biome|class|net.minecraft.world.biome.Biome|false
    Method End: registerBiomes(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerEntities(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8184|8189|event|param|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8099|8113|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|8131|8147|registerEntities|method|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8148|8170|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|8171|8182|EntityEntry|class|net.minecraftforge.fml.common.registry.EntityEntry|false
-      @|net/mcreator/toklar/Toklar.java|8202|8207|event|param|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8208|8219|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
-      @|net/mcreator/toklar/Toklar.java|8222|8233|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
-      @|net/mcreator/toklar/Toklar.java|8234|8242|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|8243|8254|getEntities|method|net.mcreator.toklar.ElementsToklar|getEntities|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|8257|8263|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8266|8269|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8270|8278|Supplier|class|java.util.function.Supplier|false
-      @|net/mcreator/toklar/Toklar.java|8280|8283|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8285|8292|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8293|8304|EntityEntry|class|net.minecraftforge.fml.common.registry.EntityEntry|false
+      @|net/mcreator/toklar/Toklar.java|7777|7782|event|param|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7692|7706|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|7724|7740|registerEntities|method|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|7741|7763|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|7764|7775|EntityEntry|class|net.minecraftforge.fml.common.registry.EntityEntry|false
+      @|net/mcreator/toklar/Toklar.java|7795|7800|event|param|net.mcreator.toklar.Toklar|registerEntities|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7801|7812|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
+      @|net/mcreator/toklar/Toklar.java|7815|7826|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      @|net/mcreator/toklar/Toklar.java|7827|7835|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|7836|7847|getEntities|method|net.mcreator.toklar.ElementsToklar|getEntities|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|7850|7856|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7859|7862|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|7863|7871|Supplier|class|java.util.function.Supplier|false
+      @|net/mcreator/toklar/Toklar.java|7873|7876|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7878|7885|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|7886|7897|EntityEntry|class|net.minecraftforge.fml.common.registry.EntityEntry|false
    Method End: registerEntities(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerPotions(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8409|8414|event|param|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8330|8344|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|8362|8377|registerPotions|method|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8378|8400|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|8401|8407|Potion|class|net.minecraft.potion.Potion|false
-      @|net/mcreator/toklar/Toklar.java|8427|8432|event|param|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8433|8444|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
-      @|net/mcreator/toklar/Toklar.java|8447|8458|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
-      @|net/mcreator/toklar/Toklar.java|8459|8467|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|8468|8478|getPotions|method|net.mcreator.toklar.ElementsToklar|getPotions|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|8481|8487|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8490|8493|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
-      @|net/mcreator/toklar/Toklar.java|8494|8502|Supplier|class|java.util.function.Supplier|false
-      @|net/mcreator/toklar/Toklar.java|8504|8507|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8509|8516|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
-      @|net/mcreator/toklar/Toklar.java|8517|8523|Potion|class|net.minecraft.potion.Potion|false
+      @|net/mcreator/toklar/Toklar.java|8002|8007|event|param|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|7923|7937|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|7955|7970|registerPotions|method|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|7971|7993|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|7994|8000|Potion|class|net.minecraft.potion.Potion|false
+      @|net/mcreator/toklar/Toklar.java|8020|8025|event|param|net.mcreator.toklar.Toklar|registerPotions|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|8026|8037|getRegistry|method|net.minecraftforge.event.RegistryEvent.Register|getRegistry|()Lnet/minecraftforge/registries/IForgeRegistry;
+      @|net/mcreator/toklar/Toklar.java|8040|8051|registerAll|method|net.minecraftforge.registries.IForgeRegistry|registerAll|([Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      @|net/mcreator/toklar/Toklar.java|8052|8060|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|8061|8071|getPotions|method|net.mcreator.toklar.ElementsToklar|getPotions|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|8074|8080|stream|method|java.util.Collection|stream|()Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|8083|8086|map|method|java.util.stream.Stream|map|(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      @|net/mcreator/toklar/Toklar.java|8087|8095|Supplier|class|java.util.function.Supplier|false
+      @|net/mcreator/toklar/Toklar.java|8097|8100|get|method|java.util.function.Supplier|get|()Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|8102|8109|toArray|method|java.util.stream.Stream|toArray|(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+      @|net/mcreator/toklar/Toklar.java|8110|8116|Potion|class|net.minecraft.potion.Potion|false
    Method End: registerPotions(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerSounds(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8650|8655|event|param|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8549|8563|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|8581|8595|registerSounds|method|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8596|8618|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
-      @|net/mcreator/toklar/Toklar.java|8619|8648|net.minecraft.util.SoundEvent|class|net.minecraft.util.SoundEvent|false
-      @|net/mcreator/toklar/Toklar.java|8668|8676|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|8677|8691|registerSounds|method|net.mcreator.toklar.ElementsToklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
-      @|net/mcreator/toklar/Toklar.java|8692|8697|event|param|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|8243|8248|event|param|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|8142|8156|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|8174|8188|registerSounds|method|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|8189|8211|RegistryEvent.Register|class|net.minecraftforge.event.RegistryEvent.Register|false
+      @|net/mcreator/toklar/Toklar.java|8212|8241|net.minecraft.util.SoundEvent|class|net.minecraft.util.SoundEvent|false
+      @|net/mcreator/toklar/Toklar.java|8261|8269|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|8270|8284|registerSounds|method|net.mcreator.toklar.ElementsToklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V
+      @|net/mcreator/toklar/Toklar.java|8285|8290|event|param|net.mcreator.toklar.Toklar|registerSounds|(Lnet/minecraftforge/event/RegistryEvent$Register;)V|event|0
    Method End: registerSounds(Lnet/minecraftforge/event/RegistryEvent$Register;)V
    Method Start: registerModels(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
-      @|net/mcreator/toklar/Toklar.java|8809|8814|event|param|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V|event|0
-      @|net/mcreator/toklar/Toklar.java|8715|8729|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/Toklar.java|8736|8744|SideOnly|class|net.minecraftforge.fml.relauncher.SideOnly|false
-      @|net/mcreator/toklar/Toklar.java|8745|8749|Side|class|net.minecraftforge.fml.relauncher.Side|false
-      @|net/mcreator/toklar/Toklar.java|8750|8756|CLIENT|field|net.minecraftforge.fml.relauncher.Side|CLIENT
-      @|net/mcreator/toklar/Toklar.java|8775|8789|registerModels|method|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
-      @|net/mcreator/toklar/Toklar.java|8790|8808|ModelRegistryEvent|class|net.minecraftforge.client.event.ModelRegistryEvent|false
-      @|net/mcreator/toklar/Toklar.java|8827|8835|elements|field|net.mcreator.toklar.Toklar|elements
-      @|net/mcreator/toklar/Toklar.java|8836|8847|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
-      @|net/mcreator/toklar/Toklar.java|8850|8857|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
-      @|net/mcreator/toklar/Toklar.java|8869|8876|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
-      @|net/mcreator/toklar/Toklar.java|8877|8891|registerModels|method|net.mcreator.toklar.ElementsToklar.ModElement|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
-      @|net/mcreator/toklar/Toklar.java|8892|8897|event|param|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|8402|8407|event|param|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V|event|0
+      @|net/mcreator/toklar/Toklar.java|8308|8322|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/Toklar.java|8329|8337|SideOnly|class|net.minecraftforge.fml.relauncher.SideOnly|false
+      @|net/mcreator/toklar/Toklar.java|8338|8342|Side|class|net.minecraftforge.fml.relauncher.Side|false
+      @|net/mcreator/toklar/Toklar.java|8343|8349|CLIENT|field|net.minecraftforge.fml.relauncher.Side|CLIENT
+      @|net/mcreator/toklar/Toklar.java|8368|8382|registerModels|method|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
+      @|net/mcreator/toklar/Toklar.java|8383|8401|ModelRegistryEvent|class|net.minecraftforge.client.event.ModelRegistryEvent|false
+      @|net/mcreator/toklar/Toklar.java|8420|8428|elements|field|net.mcreator.toklar.Toklar|elements
+      @|net/mcreator/toklar/Toklar.java|8429|8440|getElements|method|net.mcreator.toklar.ElementsToklar|getElements|()Ljava/util/List;
+      @|net/mcreator/toklar/Toklar.java|8443|8450|forEach|method|java.lang.Iterable|forEach|(Ljava/util/function/Consumer;)V
+      @|net/mcreator/toklar/Toklar.java|8462|8469|element|param|java.util.function.Consumer<net.mcreator.toklar.ElementsToklar.ModElement>|accept|(Lnet/mcreator/toklar/ElementsToklar$ModElement;)V|element|-1
+      @|net/mcreator/toklar/Toklar.java|8470|8484|registerModels|method|net.mcreator.toklar.ElementsToklar.ModElement|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
+      @|net/mcreator/toklar/Toklar.java|8485|8490|event|param|net.mcreator.toklar.Toklar|registerModels|(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V|event|0
    Method End: registerModels(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
-   @|net/mcreator/toklar/Toklar.java|8933|8946|FluidRegistry|class|net.minecraftforge.fluids.FluidRegistry|false
-   @|net/mcreator/toklar/Toklar.java|8947|8968|enableUniversalBucket|method|net.minecraftforge.fluids.FluidRegistry|enableUniversalBucket|()V
+   @|net/mcreator/toklar/Toklar.java|8526|8539|FluidRegistry|class|net.minecraftforge.fluids.FluidRegistry|false
+   @|net/mcreator/toklar/Toklar.java|8540|8561|enableUniversalBucket|method|net.minecraftforge.fluids.FluidRegistry|enableUniversalBucket|()V
 Class End  : net.mcreator.toklar.Toklar
 endProcessing "net/mcreator/toklar/Toklar.java"
 
@@ -2121,7 +2113,7 @@ Class Start: net.mcreator.toklar.client.events.TooltipCleaner
 Class End  : net.mcreator.toklar.client.events.TooltipCleaner
 endProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java"
 
-startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: bd3cb5c6e0fb45732f05faf5fcef98ca
+startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: 5c417c65b473fbd49dbc1a46026329da
 @|net/mcreator/toklar/config/ModConfig.java|8|34|net.mcreator.toklar.config|package|net.mcreator.toklar.config|(file)
 Class Start: net.mcreator.toklar.config.ModConfig
    @|net/mcreator/toklar/config/ModConfig.java|52|61|ModConfig|class|net.mcreator.toklar.config.ModConfig|false
@@ -2172,34 +2164,19 @@ Class Start: net.mcreator.toklar.config.ModConfig
       @|net/mcreator/toklar/config/ModConfig.java|1766|1790|focusBonusDamagePerLevel|field|net.mcreator.toklar.config.ModConfig|focusBonusDamagePerLevel
       @|net/mcreator/toklar/config/ModConfig.java|1793|1798|bonus|param|net.mcreator.toklar.config.ModConfig|setFocusBonusDamagePerLevel|(F)V|bonus|0
    Method End: setFocusBonusDamagePerLevel(F)V
-   @|net/mcreator/toklar/config/ModConfig.java|1924|1951|lootMultiplierPerDifficulty|field|net.mcreator.toklar.config.ModConfig|lootMultiplierPerDifficulty|
-   Method Start: getLootMultiplierPerDifficulty()F
-      @|net/mcreator/toklar/config/ModConfig.java|1988|2018|getLootMultiplierPerDifficulty|method|net.mcreator.toklar.config.ModConfig|getLootMultiplierPerDifficulty|()F
-      @|net/mcreator/toklar/config/ModConfig.java|2039|2066|lootMultiplierPerDifficulty|field|net.mcreator.toklar.config.ModConfig|lootMultiplierPerDifficulty
-   Method End: getLootMultiplierPerDifficulty()F
-   Method Start: setLootMultiplierPerDifficulty(F)V
-      @|net/mcreator/toklar/config/ModConfig.java|2138|2148|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-      @|net/mcreator/toklar/config/ModConfig.java|2101|2131|setLootMultiplierPerDifficulty|method|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V
-      @|net/mcreator/toklar/config/ModConfig.java|2165|2175|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-      @|net/mcreator/toklar/config/ModConfig.java|2184|2194|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-      @|net/mcreator/toklar/config/ModConfig.java|2221|2231|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-      @|net/mcreator/toklar/config/ModConfig.java|2240|2250|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-      @|net/mcreator/toklar/config/ModConfig.java|2290|2317|lootMultiplierPerDifficulty|field|net.mcreator.toklar.config.ModConfig|lootMultiplierPerDifficulty
-      @|net/mcreator/toklar/config/ModConfig.java|2320|2330|multiplier|param|net.mcreator.toklar.config.ModConfig|setLootMultiplierPerDifficulty|(F)V|multiplier|0
-   Method End: setLootMultiplierPerDifficulty(F)V
    Method Start: getFocusDurationSecondsPerLevel()F
-      @|net/mcreator/toklar/config/ModConfig.java|2364|2395|getFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusDurationSecondsPerLevel|()F
-      @|net/mcreator/toklar/config/ModConfig.java|2416|2444|focusDurationSecondsPerLevel|field|net.mcreator.toklar.config.ModConfig|focusDurationSecondsPerLevel
+      @|net/mcreator/toklar/config/ModConfig.java|1834|1865|getFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|getFocusDurationSecondsPerLevel|()F
+      @|net/mcreator/toklar/config/ModConfig.java|1886|1914|focusDurationSecondsPerLevel|field|net.mcreator.toklar.config.ModConfig|focusDurationSecondsPerLevel
    Method End: getFocusDurationSecondsPerLevel()F
    Method Start: setFocusDurationSecondsPerLevel(F)V
-      @|net/mcreator/toklar/config/ModConfig.java|2517|2525|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
-      @|net/mcreator/toklar/config/ModConfig.java|2479|2510|setFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V
-      @|net/mcreator/toklar/config/ModConfig.java|2542|2550|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
-      @|net/mcreator/toklar/config/ModConfig.java|2559|2567|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
-      @|net/mcreator/toklar/config/ModConfig.java|2589|2597|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
-      @|net/mcreator/toklar/config/ModConfig.java|2608|2616|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
-      @|net/mcreator/toklar/config/ModConfig.java|2655|2683|focusDurationSecondsPerLevel|field|net.mcreator.toklar.config.ModConfig|focusDurationSecondsPerLevel
-      @|net/mcreator/toklar/config/ModConfig.java|2686|2694|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|1987|1995|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|1949|1980|setFocusDurationSecondsPerLevel|method|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V
+      @|net/mcreator/toklar/config/ModConfig.java|2012|2020|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|2029|2037|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|2059|2067|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|2078|2086|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
+      @|net/mcreator/toklar/config/ModConfig.java|2125|2153|focusDurationSecondsPerLevel|field|net.mcreator.toklar.config.ModConfig|focusDurationSecondsPerLevel
+      @|net/mcreator/toklar/config/ModConfig.java|2156|2164|duration|param|net.mcreator.toklar.config.ModConfig|setFocusDurationSecondsPerLevel|(F)V|duration|0
    Method End: setFocusDurationSecondsPerLevel(F)V
 Class End  : net.mcreator.toklar.config.ModConfig
 endProcessing "net/mcreator/toklar/config/ModConfig.java"
@@ -3573,32 +3550,31 @@ Class Start: net.mcreator.toklar.entity.EntityMonster
 Class End  : net.mcreator.toklar.entity.EntityMonster
 endProcessing "net/mcreator/toklar/entity/EntityMonster.java"
 
-startProcessing "net/mcreator/toklar/events/DropScalingHandler.java" md5: 7d04d84fd7c0f32b9600847b779999de
+startProcessing "net/mcreator/toklar/events/DropScalingHandler.java" md5: 3c9d017d274580f204ede3f4977b8dc1
 @|net/mcreator/toklar/events/DropScalingHandler.java|8|34|net.mcreator.toklar.events|package|net.mcreator.toklar.events|(file)
 Class Start: net.mcreator.toklar.events.DropScalingHandler
-   @|net/mcreator/toklar/events/DropScalingHandler.java|352|370|DropScalingHandler|class|net.mcreator.toklar.events.DropScalingHandler|false
+   @|net/mcreator/toklar/events/DropScalingHandler.java|416|434|DropScalingHandler|class|net.mcreator.toklar.events.DropScalingHandler|false
    Method Start: onMobDrops(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V
-      @|net/mcreator/toklar/events/DropScalingHandler.java|441|446|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
-      @|net/mcreator/toklar/events/DropScalingHandler.java|381|395|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|413|423|onMobDrops|method|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V
-      @|net/mcreator/toklar/events/DropScalingHandler.java|424|440|LivingDropsEvent|class|net.minecraftforge.event.entity.living.LivingDropsEvent|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|465|470|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
-      @|net/mcreator/toklar/events/DropScalingHandler.java|471|486|getEntityLiving|method|net.minecraftforge.event.entity.living.LivingEvent|getEntityLiving|()Lnet/minecraft/entity/EntityLivingBase;
-      @|net/mcreator/toklar/events/DropScalingHandler.java|500|504|IMob|class|net.minecraft.entity.monster.IMob|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|625|630|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
-      @|net/mcreator/toklar/events/DropScalingHandler.java|631|646|getEntityLiving|method|net.minecraftforge.event.entity.living.LivingEvent|getEntityLiving|()Lnet/minecraft/entity/EntityLivingBase;
-      @|net/mcreator/toklar/events/DropScalingHandler.java|649|654|world|field|net.minecraft.entity.Entity|world
-      @|net/mcreator/toklar/events/DropScalingHandler.java|655|667|getGameRules|method|net.minecraft.world.World|getGameRules|()Lnet/minecraft/world/GameRules;
-      @|net/mcreator/toklar/events/DropScalingHandler.java|670|676|getInt|method|net.minecraft.world.GameRules|getInt|(Ljava/lang/String;)I
-      @|net/mcreator/toklar/events/DropScalingHandler.java|878|888|EntityItem|class|net.minecraft.entity.item.EntityItem|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|896|901|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
-      @|net/mcreator/toklar/events/DropScalingHandler.java|902|910|getDrops|method|net.minecraftforge.event.entity.living.LivingDropsEvent|getDrops|()Ljava/util/List;
-      @|net/mcreator/toklar/events/DropScalingHandler.java|929|938|ItemStack|class|net.minecraft.item.ItemStack|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|952|959|getItem|method|net.minecraft.entity.item.EntityItem|getItem|()Lnet/minecraft/item/ItemStack;
-      @|net/mcreator/toklar/events/DropScalingHandler.java|982|990|setCount|method|net.minecraft.item.ItemStack|setCount|(I)V
-      @|net/mcreator/toklar/events/DropScalingHandler.java|991|995|Math|class|java.lang.Math|false
-      @|net/mcreator/toklar/events/DropScalingHandler.java|996|1001|round|method|java.lang.Math|round|(F)I
-      @|net/mcreator/toklar/events/DropScalingHandler.java|1008|1016|getCount|method|net.minecraft.item.ItemStack|getCount|()I
+      @|net/mcreator/toklar/events/DropScalingHandler.java|505|510|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
+      @|net/mcreator/toklar/events/DropScalingHandler.java|445|459|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|477|487|onMobDrops|method|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V
+      @|net/mcreator/toklar/events/DropScalingHandler.java|488|504|LivingDropsEvent|class|net.minecraftforge.event.entity.living.LivingDropsEvent|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|523|539|EntityLivingBase|class|net.minecraft.entity.EntityLivingBase|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|549|554|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
+      @|net/mcreator/toklar/events/DropScalingHandler.java|555|570|getEntityLiving|method|net.minecraftforge.event.entity.living.LivingEvent|getEntityLiving|()Lnet/minecraft/entity/EntityLivingBase;
+      @|net/mcreator/toklar/events/DropScalingHandler.java|737|750|getEntityData|method|net.minecraft.entity.Entity|getEntityData|()Lnet/minecraft/nbt/NBTTagCompound;
+      @|net/mcreator/toklar/events/DropScalingHandler.java|753|761|getShort|method|net.minecraft.nbt.NBTTagCompound|getShort|(Ljava/lang/String;)S
+      @|net/mcreator/toklar/events/DropScalingHandler.java|874|884|Config.Mob|class|net.silentchaos512.scalinghealth.config.Config.Mob|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|885|892|xpBoost|field|net.silentchaos512.scalinghealth.config.Config.Mob|xpBoost
+      @|net/mcreator/toklar/events/DropScalingHandler.java|923|933|EntityItem|class|net.minecraft.entity.item.EntityItem|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|941|946|event|param|net.mcreator.toklar.events.DropScalingHandler|onMobDrops|(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V|event|0
+      @|net/mcreator/toklar/events/DropScalingHandler.java|947|955|getDrops|method|net.minecraftforge.event.entity.living.LivingDropsEvent|getDrops|()Ljava/util/List;
+      @|net/mcreator/toklar/events/DropScalingHandler.java|974|983|ItemStack|class|net.minecraft.item.ItemStack|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|997|1004|getItem|method|net.minecraft.entity.item.EntityItem|getItem|()Lnet/minecraft/item/ItemStack;
+      @|net/mcreator/toklar/events/DropScalingHandler.java|1027|1035|setCount|method|net.minecraft.item.ItemStack|setCount|(I)V
+      @|net/mcreator/toklar/events/DropScalingHandler.java|1036|1040|Math|class|java.lang.Math|false
+      @|net/mcreator/toklar/events/DropScalingHandler.java|1041|1046|round|method|java.lang.Math|round|(F)I
+      @|net/mcreator/toklar/events/DropScalingHandler.java|1053|1061|getCount|method|net.minecraft.item.ItemStack|getCount|()I
    Method End: onMobDrops(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V
 Class End  : net.mcreator.toklar.events.DropScalingHandler
 endProcessing "net/mcreator/toklar/events/DropScalingHandler.java"
