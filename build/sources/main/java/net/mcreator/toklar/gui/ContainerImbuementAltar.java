@@ -18,11 +18,10 @@ public class ContainerImbuementAltar extends Container {
         this.tile = tile;
         this.altar = (TileEntityImbuementAltar) tile;
 
-     // Weapon slot
         this.addSlotToContainer(new Slot(tile, 0, 45, 17) {
             @Override
             public boolean isItemValid(ItemStack stack) {
-                return altar.isValidWeapon(stack);
+                return altar.isValidWeapon(stack) || altar.isValidTool(stack);
             }
 
             @Override

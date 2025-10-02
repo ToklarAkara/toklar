@@ -3,6 +3,8 @@ package net.mcreator.toklar.util;
 import com.google.gson.*;
 import java.io.*;
 import java.util.*;
+
+import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
 import net.minecraft.util.ResourceLocation;
 
 public class LycanitePartEffectRegistry {
@@ -10,6 +12,7 @@ public class LycanitePartEffectRegistry {
     private static final Map<String, List<ImbuementEffect>> effectMap = new HashMap<>();
     private static final Set<String> allPartIds = new HashSet<>();
     private static final Set<String> effectPartIds = new HashSet<>();
+    private static final Map<String, List<HarvestImbuementBonus>> harvestMap = new HashMap<>();
 
     public static void loadAll() {
         File dir = new File("config/lycanitesmobs/equipment");
@@ -29,6 +32,7 @@ public class LycanitePartEffectRegistry {
             allPartIds.add(itemId); // Track all parts
 
             boolean hasEffect = false;
+            boolean hasHarvest = false;
 
             try (FileReader reader = new FileReader(file)) {
                 JsonObject root = new JsonParser().parse(reader).getAsJsonObject();
@@ -40,23 +44,42 @@ public class LycanitePartEffectRegistry {
                     if (!feature.has("featureType")) continue;
 
                     String featureType = feature.get("featureType").getAsString();
-                    if (!featureType.equals("effect")) continue;
 
-                    hasEffect = true;
+                    if (featureType.equals("effect")) {
+                        hasEffect = true;
 
-                    String effectType = feature.get("effectType").getAsString();
-                    int strength = feature.has("effectStrength") ? feature.get("effectStrength").getAsInt() : 0;
-                    int duration = feature.has("effectDuration") ? feature.get("effectDuration").getAsInt() : 80;
-                    int levelMin = feature.has("levelMin") ? feature.get("levelMin").getAsInt() : 1;
-                    int levelMax = feature.has("levelMax") ? feature.get("levelMax").getAsInt() : Integer.MAX_VALUE;
-                    String target = feature.has("effectTarget") ? feature.get("effectTarget").getAsString() : "target";
+                        String effectType = feature.get("effectType").getAsString();
+                        int strength = feature.has("effectStrength") ? feature.get("effectStrength").getAsInt() : 0;
+                        int duration = feature.has("effectDuration") ? feature.get("effectDuration").getAsInt() : 80;
+                        int levelMin = feature.has("levelMin") ? feature.get("levelMin").getAsInt() : 1;
+                        int levelMax = feature.has("levelMax") ? feature.get("levelMax").getAsInt() : Integer.MAX_VALUE;
+                        String target = feature.has("effectTarget") ? feature.get("effectTarget").getAsString() : "target";
 
-                    effectMap.computeIfAbsent(itemId, k -> new ArrayList<>())
-                             .add(new ImbuementEffect(effectType, strength, duration, levelMin, levelMax, target));
-                }
+                        effectMap.computeIfAbsent(itemId, k -> new ArrayList<>())
+                                 .add(new ImbuementEffect(effectType, strength, duration, levelMin, levelMax, target));
+                    }
 
-                if (hasEffect) {
-                    effectPartIds.add(itemId); // Track only parts with imbuement effects
+                    if (featureType.equals("harvest")) {
+                    	hasHarvest = true;
+                        String harvestType = feature.get("harvestType").getAsString();
+                        String shape = feature.get("harvestShape").getAsString();
+                        int speed = feature.has("harvestSpeed") ? feature.get("harvestSpeed").getAsInt() : 0;
+                        JsonArray rangeArray = feature.getAsJsonArray("harvestRange");
+                        int[] range = new int[] {
+                            rangeArray.get(0).getAsInt(),
+                            rangeArray.get(1).getAsInt(),
+                            rangeArray.get(2).getAsInt()
+                        };
+                        int levelMin = feature.has("levelMin") ? feature.get("levelMin").getAsInt() : 1;
+                        int levelMax = feature.has("levelMax") ? feature.get("levelMax").getAsInt() : Integer.MAX_VALUE;
+
+                        harvestMap.computeIfAbsent(itemId, k -> new ArrayList<>())
+                                  .add(new HarvestImbuementBonus(harvestType, shape, speed, range, levelMin, levelMax));
+                    }
+                }                
+
+                if (hasEffect || hasHarvest) {
+                    effectPartIds.add(itemId); // Track parts with either effect or harvest
                 }
 
             } catch (Exception e) {
@@ -67,7 +90,15 @@ public class LycanitePartEffectRegistry {
 
         System.out.println("[Toklar] Loaded " + effectMap.size() + " Lycanites part effects.");
     }
+    
+    public static List<HarvestImbuementBonus> getHarvestBonusesFor(String itemId) {
+        return harvestMap.getOrDefault(itemId, Collections.emptyList());
+    }
 
+    public static boolean hasHarvestBonus(String itemId) {
+        return harvestMap.containsKey(itemId);
+    }
+    
     public static List<ImbuementEffect> getEffectsFor(String itemId) {
         return effectMap.getOrDefault(itemId, Collections.emptyList());
     }

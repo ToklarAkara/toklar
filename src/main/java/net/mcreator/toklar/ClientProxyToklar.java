@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.mcreator.toklar.item.ItemSummonClankyElement;
 import net.mcreator.toklar.client.events.TooltipCleaner;
-import net.mcreator.toklar.imbuement.WeaponImbuementTooltipHandler;
+import net.mcreator.toklar.imbuement.ImbuementTooltipHandler;
 import net.mcreator.toklar.init.ModBlocks;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -33,7 +33,7 @@ public class ClientProxyToklar implements IProxyToklar {
     @Override
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new TooltipCleaner());
-        MinecraftForge.EVENT_BUS.register(new WeaponImbuementTooltipHandler());
+        MinecraftForge.EVENT_BUS.register(new ImbuementTooltipHandler());
     }
 
     @Override

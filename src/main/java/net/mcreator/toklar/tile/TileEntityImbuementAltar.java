@@ -5,6 +5,8 @@ import java.util.Set;
 
 import com.mujmajnkraft.bettersurvival.items.ItemCustomWeapon;
 
+import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
+import net.mcreator.toklar.imbuement.HarvestImbuementHandler;
 import net.mcreator.toklar.imbuement.WeaponImbuementHandler;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +14,9 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
@@ -44,12 +48,9 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
         ItemStack part = inventory.get(1);
         ItemStack catalyst = inventory.get(2);
 
-        if (!isValidWeapon(weapon) || !isValidMonsterPart(part) || !isValidCatalyst(catalyst)) {
+        if (!(isValidWeapon(weapon) || isValidTool(weapon)) || !isValidMonsterPart(part) || !isValidCatalyst(catalyst)) {
             imbuementTimer = 0;
             clearPreview();
-        //    if (!isValidWeapon(weapon)) System.out.println("[Toklar] Weapon invalid");
-         //   if (!isValidMonsterPart(part)) System.out.println("[Toklar] Monster part invalid");
-         //   if (!isValidCatalyst(catalyst)) System.out.println("[Toklar] Catalyst invalid");
             return;
         }
 
@@ -76,42 +77,94 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
     }
 
     private void generatePreview() {
-        ItemStack weapon = inventory.get(0);
+        ItemStack item = inventory.get(0);
         ItemStack part = inventory.get(1);
         ItemStack catalyst = inventory.get(2);
 
-        if (!isValidWeapon(weapon) || !isValidMonsterPart(part) || !isValidCatalyst(catalyst)) return;
+        if (!isValidMonsterPart(part) || !isValidCatalyst(catalyst)) {
+            System.out.println("[Toklar] Invalid part or catalyst");
+            return;
+        }
 
         String itemId = part.getItem().getRegistryName().getResourcePath();
+        System.out.println("[Toklar] Part ID: " + itemId);
+
         NBTTagCompound partTag = part.getTagCompound();
         int partLevel = (partTag != null && partTag.hasKey("equipmentLevel")) ? partTag.getInteger("equipmentLevel") : 1;
-
-        List<LycanitePartEffectRegistry.ImbuementEffect> effects = LycanitePartEffectRegistry.getEffectsFor(itemId);
-        if (effects.isEmpty()) return;
+        System.out.println("[Toklar] Part level: " + partLevel);
 
         ItemStack currentPreview = inventory.get(3);
-        if (currentPreview.isEmpty() || !ItemStack.areItemsEqual(currentPreview, weapon)) {
-            ItemStack preview = weapon.copy();
-            NBTTagCompound previewTag = preview.getOrCreateSubCompound("toklar_imbuement");
-            NBTTagList effectList = new NBTTagList();
+        if (!currentPreview.isEmpty() && ItemStack.areItemsEqual(currentPreview, item)) {
+            System.out.println("[Toklar] Preview already matches item, skipping");
+            return;
+        }
 
+        ItemStack preview = item.copy();
+        NBTTagCompound previewTag = preview.getOrCreateSubCompound("toklar_imbuement");
+
+        boolean wroteAnything = false;
+
+        if (isValidWeapon(item)) {
+            System.out.println("[Toklar] Item is a valid weapon");
+            List<LycanitePartEffectRegistry.ImbuementEffect> effects = LycanitePartEffectRegistry.getEffectsFor(itemId);
+            System.out.println("[Toklar] Found " + effects.size() + " weapon effects");
+            NBTTagList effectList = new NBTTagList();
             for (LycanitePartEffectRegistry.ImbuementEffect effect : effects) {
                 if (!effect.appliesToLevel(partLevel)) continue;
-
-                NBTTagCompound singleEffect = new NBTTagCompound();
-                singleEffect.setString("effect", effect.type);
-                singleEffect.setInteger("amplifier", effect.strength);
-                singleEffect.setInteger("duration", effect.duration);
-                singleEffect.setString("target", effect.target);
-                effectList.appendTag(singleEffect);
+                NBTTagCompound tag = new NBTTagCompound();
+                tag.setString("effect", effect.type);
+                tag.setInteger("amplifier", effect.strength);
+                tag.setInteger("duration", effect.duration);
+                tag.setString("target", effect.target);
+                effectList.appendTag(tag);
             }
-
             if (effectList.tagCount() > 0) {
                 previewTag.setTag("effects", effectList);
-                inventory.set(3, preview);
-                markDirty();
-                world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
+                wroteAnything = true;
+                System.out.println("[Toklar] Wrote weapon effects to preview");
             }
+        }
+
+        if (isValidTool(item)) {
+            System.out.println("[Toklar] Item is a valid tool");
+            List<HarvestImbuementBonus> bonuses = LycanitePartEffectRegistry.getHarvestBonusesFor(itemId);
+            System.out.println("[Toklar] Found " + bonuses.size() + " harvest bonuses");
+            NBTTagList bonusList = new NBTTagList();
+            for (HarvestImbuementBonus bonus : bonuses) {
+                if (!bonus.appliesToLevel(partLevel)) {
+                    System.out.println("[Toklar] Bonus skipped due to level");
+                    continue;
+                }
+                if (!HarvestImbuementHandler.matchesHarvestToolType(item, bonus.harvestType)) {
+                    System.out.println("[Toklar] Bonus skipped due to tool mismatch: " + bonus.harvestType);
+                    continue;
+                }
+                if (bonus.range[0] == 1 && bonus.range[1] == 1 && bonus.range[2] == 1) {
+                    System.out.println("[Toklar] Bonus skipped due to trivial range");
+                    continue;
+                }
+
+                NBTTagCompound tag = new NBTTagCompound();
+                tag.setString("type", bonus.harvestType);
+                tag.setString("shape", bonus.shape);
+                tag.setInteger("speed", bonus.speed);
+                tag.setIntArray("range", bonus.range);
+                bonusList.appendTag(tag);
+            }
+            if (bonusList.tagCount() > 0) {
+                previewTag.setTag("bonuses", bonusList);
+                wroteAnything = true;
+                System.out.println("[Toklar] Wrote harvest bonuses to preview");
+            }
+        }
+
+        if (wroteAnything) {
+            inventory.set(3, preview);
+            markDirty();
+            world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
+            System.out.println("[Toklar] Preview generated and set");
+        } else {
+            System.out.println("[Toklar] No imbuement data written — preview not generated");
         }
     }
 
@@ -127,26 +180,51 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
         NBTTagCompound partTag = part.getTagCompound();
         int partLevel = (partTag != null && partTag.hasKey("equipmentLevel")) ? partTag.getInteger("equipmentLevel") : 1;
 
-        List<LycanitePartEffectRegistry.ImbuementEffect> effects = LycanitePartEffectRegistry.getEffectsFor(itemId);
-        if (effects.isEmpty()) return;
-
         NBTTagCompound imbueTag = stack.getOrCreateSubCompound("toklar_imbuement");
-        NBTTagList effectList = new NBTTagList();
+        boolean wroteAnything = false;
 
-        for (LycanitePartEffectRegistry.ImbuementEffect effect : effects) {
-            if (!effect.appliesToLevel(partLevel)) continue;
-
-            NBTTagCompound singleEffect = new NBTTagCompound();
-            singleEffect.setString("effect", effect.type);
-            singleEffect.setInteger("amplifier", effect.strength);
-            singleEffect.setInteger("duration", effect.duration);
-            singleEffect.setString("target", effect.target);
-            effectList.appendTag(singleEffect);
+        if (isValidWeapon(stack)) {
+            List<LycanitePartEffectRegistry.ImbuementEffect> effects = LycanitePartEffectRegistry.getEffectsFor(itemId);
+            NBTTagList effectList = new NBTTagList();
+            for (LycanitePartEffectRegistry.ImbuementEffect effect : effects) {
+                if (!effect.appliesToLevel(partLevel)) continue;
+                NBTTagCompound tag = new NBTTagCompound();
+                tag.setString("effect", effect.type);
+                tag.setInteger("amplifier", effect.strength);
+                tag.setInteger("duration", effect.duration);
+                tag.setString("target", effect.target);
+                effectList.appendTag(tag);
+            }
+            if (effectList.tagCount() > 0) {
+                imbueTag.setTag("effects", effectList);
+                wroteAnything = true;
+            }
         }
 
-        imbueTag.setTag("effects", effectList);
+        if (isValidTool(stack)) {
+            List<HarvestImbuementBonus> bonuses = LycanitePartEffectRegistry.getHarvestBonusesFor(itemId);
+            NBTTagList bonusList = new NBTTagList();
+            for (HarvestImbuementBonus bonus : bonuses) {
+                if (!bonus.appliesToLevel(partLevel)) continue;
+                if (!HarvestImbuementHandler.matchesHarvestToolType(stack, bonus.harvestType)) continue;
+                if (bonus.range[0] == 1 && bonus.range[1] == 1 && bonus.range[2] == 1) continue;
 
-        inventory.set(3, stack); // Replace preview with imbued weapon
+                NBTTagCompound tag = new NBTTagCompound();
+                tag.setString("type", bonus.harvestType);
+                tag.setString("shape", bonus.shape);
+                tag.setInteger("speed", bonus.speed);
+                tag.setIntArray("range", bonus.range);
+                bonusList.appendTag(tag);
+            }
+            if (bonusList.tagCount() > 0) {
+                imbueTag.setTag("bonuses", bonusList);
+                wroteAnything = true;
+            }
+        }
+
+        if (!wroteAnything) return;
+
+        inventory.set(3, stack); // Replace preview with imbued item
         inventory.set(0, ItemStack.EMPTY);
         inventory.set(1, ItemStack.EMPTY);
         inventory.set(2, ItemStack.EMPTY);
@@ -229,16 +307,26 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
 
     public boolean isValidWeapon(ItemStack stack) {
         if (stack.isEmpty()) return false;
-
-        return stack.getItem() instanceof net.minecraft.item.ItemSword
-            || stack.getItem() instanceof net.minecraft.item.ItemAxe
+        return stack.getItem() instanceof ItemSword
+            || stack.getItem() instanceof ItemAxe
             || stack.getItem() instanceof ItemCustomWeapon;
+    }
+
+    public boolean isValidTool(ItemStack stack) {
+        if (stack.isEmpty()) return false;
+
+        ResourceLocation id = stack.getItem().getRegistryName();
+        if (id == null || !id.getResourceDomain().equals("tconstruct")) return false;
+
+        String path = id.getResourcePath();
+        return path.matches(".*(hammer|pickaxe|excavator|shovel|mattock|hatchet|lumberaxe|kama|scythe).*");
     }
 
     public boolean isValidMonsterPart(ItemStack stack) {
         if (stack.isEmpty()) return false;
         String itemId = stack.getItem().getRegistryName().getResourcePath();
-        return LycanitePartEffectRegistry.hasEffects(itemId);
+        return LycanitePartEffectRegistry.hasEffects(itemId)
+            || LycanitePartEffectRegistry.hasHarvestBonus(itemId);
     }
 
 

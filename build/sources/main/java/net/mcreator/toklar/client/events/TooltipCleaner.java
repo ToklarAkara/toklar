@@ -4,6 +4,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry.ImbuementEffect;
+import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
 import net.mcreator.toklar.tile.TileEntityImbuementAltar;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -59,11 +60,11 @@ public class TooltipCleaner {
         if (isPart) {
             tooltip.add(TextFormatting.GRAY + "Used in Imbuement rituals");
 
+            NBTTagCompound partTag = stack.getTagCompound();
+            int partLevel = (partTag != null && partTag.hasKey("equipmentLevel")) ? partTag.getInteger("equipmentLevel") : 1;
+
             if (LycanitePartEffectRegistry.hasEffects(itemId)) {
                 List<ImbuementEffect> effects = LycanitePartEffectRegistry.getEffectsFor(itemId);
-                NBTTagCompound partTag = stack.getTagCompound();
-                int partLevel = (partTag != null && partTag.hasKey("equipmentLevel")) ? partTag.getInteger("equipmentLevel") : 1;
-
                 List<ImbuementEffect> active = effects.stream()
                         .filter(e -> e.appliesToLevel(partLevel))
                         .collect(Collectors.toList());
@@ -91,6 +92,29 @@ public class TooltipCleaner {
             } else {
                 tooltip.add(TextFormatting.DARK_GRAY + "This part has no imbuement effects, you can safely convert it to charges.");
             }
+            List<HarvestImbuementBonus> bonuses = LycanitePartEffectRegistry.getHarvestBonusesFor(itemId);
+            List<HarvestImbuementBonus> activeBonuses = bonuses.stream()
+                    .filter(b -> b.appliesToLevel(partLevel))
+                    .filter(b -> !(b.range[0] == 1 && b.range[1] == 1 && b.range[2] == 1)) // filter out 1x1x1
+                    .collect(Collectors.toList());
+
+            if (!activeBonuses.isEmpty()) {
+                tooltip.add(TextFormatting.GRAY + "Harvest Bonuses:");
+                for (HarvestImbuementBonus bonus : activeBonuses) {
+                    String type = capitalize(bonus.harvestType);
+                    String shape = bonus.shape;
+                    int[] range = bonus.range;
+                    int speed = bonus.speed;
+
+                    tooltip.add(TextFormatting.DARK_GRAY + "• " +
+                            TextFormatting.GREEN + type + " " +
+                            TextFormatting.YELLOW + "[" + shape + "] " +
+                            TextFormatting.DARK_AQUA + "Range: " + range[0] + "x" + range[1] + "x" + range[2] +
+                            TextFormatting.GRAY + " Speed: " + speed);
+                }
+            } else {
+                tooltip.add(TextFormatting.DARK_GRAY + "This part has harvest bonuses, but none are active.");
+            }
         }
 
         if (isCatalyst) {
@@ -104,5 +128,8 @@ public class TooltipCleaner {
         if (Minecraft.getMinecraft().gameSettings.advancedItemTooltips) {
             tooltip.add(TextFormatting.DARK_GRAY + id.toString());
         }
+    }
+    private String capitalize(String s) {
+        return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 }

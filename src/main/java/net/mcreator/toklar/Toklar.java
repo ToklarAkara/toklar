@@ -30,8 +30,9 @@ import net.minecraft.block.Block;
 import net.mcreator.toklar.enchantments.FocusRetargetHandler;
 import net.mcreator.toklar.events.DropScalingHandler;
 import net.mcreator.toklar.gui.GuiHandler;
+import net.mcreator.toklar.imbuement.HarvestImbuementHandler;
 import net.mcreator.toklar.imbuement.WeaponImbuementHandler;
-import net.mcreator.toklar.imbuement.WeaponImbuementTooltipHandler;
+
 
 import java.util.function.Supplier;
 
@@ -45,7 +46,7 @@ import net.minecraft.util.ResourceLocation;
 @Mod(modid = Toklar.MODID, version = Toklar.VERSION)
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.1.11";
+    public static final String VERSION = "1.1.12";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -118,6 +119,7 @@ public class Toklar {
             }
         // Register your trade fixer to listen for events
             MinecraftForge.EVENT_BUS.register(new WeaponImbuementHandler());
+            MinecraftForge.EVENT_BUS.register(new HarvestImbuementHandler());
             MinecraftForge.EVENT_BUS.register(new EnchantReach());
         MinecraftForge.EVENT_BUS.register(new StructureTradeFixer());
         MinecraftForge.EVENT_BUS.register(new DropScalingHandler());
