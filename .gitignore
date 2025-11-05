@@ -1,9 +1,23 @@
-# Ignore all jar files in libs/
-libs/*.jar
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-# Optional: ignore build artifacts
-/build/
-/out/
-/.gradle/
-/run/
-/bin/
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+libs
