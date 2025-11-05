@@ -6,6 +6,8 @@ import java.util.*;
 
 import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
 import net.minecraft.util.ResourceLocation;
+import net.mcreator.toklar.integrations.ebwizardry.spells.SpellRank;
+
 
 public class LycanitePartEffectRegistry {
 
@@ -33,6 +35,8 @@ public class LycanitePartEffectRegistry {
 
             boolean hasEffect = false;
             boolean hasHarvest = false;
+            boolean hasProjectile = false;
+
 
             try (FileReader reader = new FileReader(file)) {
                 JsonObject root = new JsonParser().parse(reader).getAsJsonObject();
@@ -76,12 +80,43 @@ public class LycanitePartEffectRegistry {
                         harvestMap.computeIfAbsent(itemId, k -> new ArrayList<>())
                                   .add(new HarvestImbuementBonus(harvestType, shape, speed, range, levelMin, levelMax));
                     }
-                }                
+                    if (featureType.equals("projectile")) {
+                        hasProjectile = true;
 
-                if (hasEffect || hasHarvest) {
-                    effectPartIds.add(itemId); // Track parts with either effect or harvest
+                        String projectileName = feature.get("projectileName").getAsString();
+
+                        int cooldown = 20;
+                        if (feature.has("cooldown")) {
+                            JsonElement cd = feature.get("cooldown");
+                            if (cd.isJsonPrimitive() && cd.getAsJsonPrimitive().isNumber()) {
+                                cooldown = cd.getAsInt();
+                            } else {
+                                System.out.println("Fallback cooldown used for: " + projectileName);
+                            }
+                        }
+
+                        int count = feature.has("count") && feature.get("count").isJsonPrimitive()
+                            ? feature.get("count").getAsInt()
+                            : 1;
+
+                        int bonus = feature.has("bonusDamage") && feature.get("bonusDamage").isJsonPrimitive()
+                            ? feature.get("bonusDamage").getAsInt()
+                            : 0;
+
+                        int level = feature.has("levelMin") && feature.get("levelMin").isJsonPrimitive()
+                            ? feature.get("levelMin").getAsInt()
+                            : 1;
+
+                        projectileSpellMap.computeIfAbsent(itemId, k -> new ArrayList<>())
+                        .add(SpellRank.getOrCreate(projectileName, cooldown, count, bonus, level));
+                        System.out.println("[Toklar] Added projectile spell: " + projectileName + "_rank" + level + " for part: " + itemId);
+                    }              
+
+                if (hasEffect || hasHarvest || hasProjectile) {
+                    effectPartIds.add(itemId); // Track parts with any imbuement-relevant feature
                 }
 
+                }
             } catch (Exception e) {
                 System.err.println("[Toklar] Failed to parse: " + file.getName());
                 e.printStackTrace();
@@ -98,6 +133,7 @@ public class LycanitePartEffectRegistry {
     public static boolean hasHarvestBonus(String itemId) {
         return harvestMap.containsKey(itemId);
     }
+    private static final Map<String, List<SpellRank>> projectileSpellMap = new HashMap<>();
     
     public static List<ImbuementEffect> getEffectsFor(String itemId) {
         return effectMap.getOrDefault(itemId, Collections.emptyList());
@@ -106,7 +142,9 @@ public class LycanitePartEffectRegistry {
     public static boolean hasEffects(String itemId) {
         return effectPartIds.contains(itemId);
     }
-
+    public static List<SpellRank> getProjectileSpellsFor(String itemId) {
+        return projectileSpellMap.getOrDefault(itemId, Collections.emptyList());
+    }
     public static boolean isKnownPart(String itemId) {
         return allPartIds.contains(itemId);
     }
@@ -114,7 +152,9 @@ public class LycanitePartEffectRegistry {
     public static boolean isValidImbuementPart(String itemId) {
         return effectPartIds.contains(itemId);
     }
-
+    public static Set<String> getAllPartIds() {
+        return allPartIds;
+    }
     public static class ImbuementEffect {
         public final String type;
         public final int strength;

@@ -1,12 +1,16 @@
 package net.mcreator.toklar.tile;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
 
 import com.mujmajnkraft.bettersurvival.items.ItemCustomWeapon;
-
+import electroblob.wizardry.item.ItemSpellBook;
+import electroblob.wizardry.registry.WizardryItems;
+import electroblob.wizardry.spell.Spell;
 import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
 import net.mcreator.toklar.imbuement.HarvestImbuementHandler;
+import net.mcreator.toklar.imbuement.SpellbookImbuementHelper;
 import net.mcreator.toklar.imbuement.WeaponImbuementHandler;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
 import net.minecraft.block.state.IBlockState;
@@ -28,6 +32,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
 
@@ -48,11 +53,12 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
         ItemStack part = inventory.get(1);
         ItemStack catalyst = inventory.get(2);
 
-        if (!(isValidWeapon(weapon) || isValidTool(weapon)) || !isValidMonsterPart(part) || !isValidCatalyst(catalyst)) {
-            imbuementTimer = 0;
-            clearPreview();
-            return;
-        }
+        if (!(isValidWeapon(weapon) || isValidTool(weapon) || isValidSpellbook(weapon)) 
+        	    || !isValidMonsterPart(part) || !isValidCatalyst(catalyst)) {
+        	    imbuementTimer = 0;
+        	    clearPreview();
+        	    return;
+        	}
 
         imbuementTimer++;
 
@@ -73,6 +79,16 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
             }
 
             imbuementTimer = 0;
+        }
+    }
+    private static Field SPELL_ID_FIELD;
+
+    static {
+        try {
+            SPELL_ID_FIELD = Spell.class.getDeclaredField("id");
+            SPELL_ID_FIELD.setAccessible(true);
+        } catch (Exception e) {
+            System.out.println("[Toklar] Failed to cache Spell.id field: " + e);
         }
     }
 
@@ -157,14 +173,20 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
                 System.out.println("[Toklar] Wrote harvest bonuses to preview");
             }
         }
+        if (isValidSpellbook(item)) {
+            System.out.println("[Toklar] Item is a ruined spellbook");
+            Spell rawSpell = SpellbookImbuementHelper.getSpellForPart(itemId, partLevel);
+            if (rawSpell != null) {
+                int spellIndex = rawSpell.metadata(); // ✅ Canonical damage value for spellbook
+                ItemStack spellbook = new ItemStack(WizardryItems.spell_book, 1, spellIndex);
+                System.out.println("[Toklar] Preview spellbook created with spell: " + rawSpell.getRegistryName() + " (Index: " + spellIndex + ")");
+                wroteAnything = true;
 
-        if (wroteAnything) {
-            inventory.set(3, preview);
-            markDirty();
-            world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
-            System.out.println("[Toklar] Preview generated and set");
-        } else {
-            System.out.println("[Toklar] No imbuement data written — preview not generated");
+                preview = spellbook;
+                inventory.set(3, spellbook); // ✅ Assign to preview slot
+            } else {
+                System.out.println("[Toklar] No matching spell found for part: " + itemId + " level: " + partLevel);
+            }
         }
     }
 
@@ -221,16 +243,38 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
                 wroteAnything = true;
             }
         }
+        if (isValidSpellbook(stack)) {
+            System.out.println("[Toklar] Item is a ruined spellbook");
+            String partId = part.getItem().getRegistryName().getResourcePath();
+            Spell rawSpell = SpellbookImbuementHelper.getSpellForPart(partId, partLevel);
 
-        if (!wroteAnything) return;
+            if (rawSpell != null) {
+                int spellIndex = rawSpell.metadata(); // ✅ Canonical damage value
+                ItemStack spellbook = new ItemStack(WizardryItems.spell_book, 1, spellIndex);
+                System.out.println("[Toklar] Created usable spellbook with spell: " + rawSpell.getRegistryName() + " (Index: " + spellIndex + ")");
+                inventory.set(3, spellbook); // ✅ Assign to output slot
+                wroteAnything = true;
+            } else {
+                System.out.println("[Toklar] No matching spell found for part: " + partId + " level: " + partLevel);
+            }
+        }
 
-        inventory.set(3, stack); // Replace preview with imbued item
-        inventory.set(0, ItemStack.EMPTY);
-        inventory.set(1, ItemStack.EMPTY);
-        inventory.set(2, ItemStack.EMPTY);
+        // ✅ Fallback for tools/weapons
+        if (!wroteAnything) {
+            inventory.set(3, stack); // Assign original item to output
+            wroteAnything = true;
+        }
 
-        world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        markDirty();
+        // ✅ Clear inputs if anything was written to slot 3
+        if (wroteAnything) {
+            inventory.set(0, ItemStack.EMPTY);
+            inventory.set(1, ItemStack.EMPTY);
+            inventory.set(2, ItemStack.EMPTY);
+        }
+
+     world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+     markDirty();
+
     }
 
 
@@ -321,7 +365,10 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
         String path = id.getResourcePath();
         return path.matches(".*(hammer|pickaxe|excavator|shovel|mattock|hatchet|lumberaxe|kama|scythe).*");
     }
-
+    public boolean isValidSpellbook(ItemStack stack) {
+        if (stack.isEmpty()) return false;
+        return stack.getItem().getRegistryName().getResourcePath().equals("ruined_spell_book");
+    }
     public boolean isValidMonsterPart(ItemStack stack) {
         if (stack.isEmpty()) return false;
         String itemId = stack.getItem().getRegistryName().getResourcePath();

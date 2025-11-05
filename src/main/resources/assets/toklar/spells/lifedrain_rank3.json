@@ -1,0 +1,23 @@
+{
+  "enabled": {
+    "book": true,
+    "scroll": true,
+    "wands": true,
+    "npcs": false,
+    "dispensers": false,
+    "commands": true,
+    "treasure": false,
+    "trades": false,
+    "looting": true
+  },
+  "tier": "advanced",
+  "element": "necromancy",
+  "type": "projectile",
+  "cost": 45,
+  "cooldown": 10,
+   "base_properties": {
+    "damage": 2,
+    "count": 1
+  },
+  "chargeup": 0
+}

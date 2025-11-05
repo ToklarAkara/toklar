@@ -19,10 +19,10 @@ public class ContainerImbuementAltar extends Container {
         this.altar = (TileEntityImbuementAltar) tile;
 
         this.addSlotToContainer(new Slot(tile, 0, 45, 17) {
-            @Override
-            public boolean isItemValid(ItemStack stack) {
-                return altar.isValidWeapon(stack) || altar.isValidTool(stack);
-            }
+        	@Override
+        	public boolean isItemValid(ItemStack stack) {
+        	    return altar.isValidWeapon(stack) || altar.isValidTool(stack) || altar.isValidSpellbook(stack);
+        	}
 
             @Override
             public int getSlotStackLimit() {

@@ -40,8 +40,11 @@ public class ItemBronzeArmor extends ElementsToklar.ModElement {
 
     @Override
     public void initElements() {
-        ItemArmor.ArmorMaterial enuma = EnumHelper.addArmorMaterial("BRONZEARMOR", "toklar:bronze", 23, new int[]{1, 4, 5, 1}, 8,
-                (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("")), 0f);
+        ItemArmor.ArmorMaterial enuma = EnumHelper.addArmorMaterial(
+            "BRONZEARMOR", "toklar:bronze", 23, new int[]{1, 4, 5, 1}, 8,
+            (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("")), 0f
+        );
+
         elements.items.add(() -> new ItemWithTooltip(enuma, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("bronzearmorhelmet")
                 .setRegistryName("bronzearmorhelmet").setCreativeTab(CreativeTabs.COMBAT));
         elements.items.add(() -> new ItemWithTooltip(enuma, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("bronzearmorbody")
@@ -61,7 +64,7 @@ public class ItemBronzeArmor extends ElementsToklar.ModElement {
         ModelLoader.setCustomModelResourceLocation(boots, 0, new ModelResourceLocation("toklar:bronzearmorboots", "inventory"));
     }
 
-    // Inner subclass to add tooltip text to each armor item
+    // Inner subclass to add tooltip text and repair material support
     public static class ItemWithTooltip extends ItemArmor {
         public ItemWithTooltip(ArmorMaterial material, int renderIndex, EntityEquipmentSlot slot) {
             super(material, renderIndex, slot);
@@ -72,6 +75,13 @@ public class ItemBronzeArmor extends ElementsToklar.ModElement {
         public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
             super.addInformation(stack, world, tooltip, flag);
             tooltip.add(TextFormatting.RED + "Only works on humans");
+        }
+
+        @Override
+        public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+            Item repairItem = repair.getItem();
+            return repairItem == GameRegistry.findRegistry(Item.class).getValue(new ResourceLocation("variedcommodities", "ingot_bronze"))
+                || super.getIsRepairable(toRepair, repair);
         }
     }
 }

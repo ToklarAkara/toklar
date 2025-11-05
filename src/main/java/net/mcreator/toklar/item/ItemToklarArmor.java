@@ -1,4 +1,3 @@
-
 package net.mcreator.toklar.item;
 
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -41,8 +40,11 @@ public class ItemToklarArmor extends ElementsToklar.ModElement {
 
     @Override
     public void initElements() {
-        ItemArmor.ArmorMaterial enuma = EnumHelper.addArmorMaterial("TOKLARARMOR", "toklar:toklar", 15, new int[]{4, 12, 10, 4}, 9,
-                (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("")), 2f);
+        ItemArmor.ArmorMaterial enuma = EnumHelper.addArmorMaterial(
+            "TOKLARARMOR", "toklar:toklar", 15, new int[]{4, 12, 10, 4}, 9,
+            (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("")), 2f
+        );
+
         elements.items.add(() -> new ItemWithTooltip(enuma, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("toklararmorhelmet")
                 .setRegistryName("toklararmorhelmet").setCreativeTab(CreativeTabs.COMBAT));
         elements.items.add(() -> new ItemWithTooltip(enuma, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("toklararmorbody")
@@ -62,7 +64,7 @@ public class ItemToklarArmor extends ElementsToklar.ModElement {
         ModelLoader.setCustomModelResourceLocation(boots, 0, new ModelResourceLocation("toklar:toklararmorboots", "inventory"));
     }
 
-    // Inner subclass to add tooltip text to each armor item
+    // Inner subclass to add tooltip text and repair material support
     public static class ItemWithTooltip extends ItemArmor {
         public ItemWithTooltip(ArmorMaterial material, int renderIndex, EntityEquipmentSlot slot) {
             super(material, renderIndex, slot);
@@ -73,6 +75,13 @@ public class ItemToklarArmor extends ElementsToklar.ModElement {
         public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
             super.addInformation(stack, world, tooltip, flag);
             tooltip.add(TextFormatting.RED + "Only works on humans");
+        }
+
+        @Override
+        public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+            Item repairItem = repair.getItem();
+            return repairItem == GameRegistry.findRegistry(Item.class).getValue(new ResourceLocation("tconstruct", "ingots")) && repair.getMetadata() == 1
+                || super.getIsRepairable(toRepair, repair);
         }
     }
 }

@@ -33,20 +33,31 @@ import net.mcreator.toklar.gui.GuiHandler;
 import net.mcreator.toklar.imbuement.HarvestImbuementHandler;
 import net.mcreator.toklar.imbuement.WeaponImbuementHandler;
 
-
+import java.lang.reflect.Field;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
+import electroblob.wizardry.spell.Spell;
+import electroblob.wizardry.util.SpellNetworkIDSorter;
 import net.mcreator.toklar.enchantments.EnchantReach;
 import net.mcreator.toklar.enchantments.FocusEnchantmentHandler;
 import net.mcreator.toklar.init.ModBlocks;
 import net.mcreator.toklar.init.ModRecipes;
+import net.mcreator.toklar.integrations.ebwizardry.DynamicSpellRegistry;
+import net.mcreator.toklar.integrations.ebwizardry.datagen.SpellJsonGenerator;
+import net.mcreator.toklar.tools.ChatSpy;
+import net.mcreator.toklar.tools.ServerChatSpy;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
 import net.minecraft.util.ResourceLocation;
 
-@Mod(modid = Toklar.MODID, version = Toklar.VERSION)
+@Mod(modid = Toklar.MODID, version = Toklar.VERSION, dependencies = "required-after:ebwizardry")
+
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.1.12";
+    public static final String VERSION = "1.1.15";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -61,7 +72,9 @@ public class Toklar {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	
+        LycanitePartEffectRegistry.loadAll();
+    	DynamicSpellRegistry.initializeStaticSpells();
+        DynamicSpellRegistry.prepareAllFromParts(LycanitePartEffectRegistry.getAllPartIds());
     	GameRegistry.registerTileEntity(
     		    net.mcreator.toklar.block.TileEntityMonsterCandle.class,
     		    new ResourceLocation(MODID, "monster_candle")
@@ -139,12 +152,11 @@ public class Toklar {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        elements.getElements().forEach(element -> element.init(event));
+    	elements.getElements().forEach(element -> element.init(event));
         proxy.init(event);
         ModRecipes.init();
         LootTableList.register(new ResourceLocation("toklar", "entities/clanky"));
         MinecraftForge.EVENT_BUS.register(new StructureTradeFixer());
-        LycanitePartEffectRegistry.loadAll();
         System.out.println("[Mod Init] Registering SummonDamageBuffHandler");
         // SummonDamageBuffHandler.register();
     }
@@ -152,7 +164,60 @@ public class Toklar {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+      //  MinecraftForge.EVENT_BUS.register(new ChatSpy());
+       // MinecraftForge.EVENT_BUS.register(new ServerChatSpy());
+        // 🔧 Force EBWizardry to re-sort spell IDs after all mods have registered
+        System.out.println("[Toklar] Re-running SpellNetworkIDSorter to ensure correct spell IDs...");
+        SpellNetworkIDSorter.init();
+
+        // 🛠️ Overwrite networkID to guarantee uniqueness and stability
+        AtomicInteger counter = new AtomicInteger(0);
+        Spell.getSpells(s -> true).stream()
+            .sorted(Comparator.comparing(spell -> spell.getRegistryName().toString()))
+            .forEach(spell -> {
+                try {
+                    Field idField = Spell.class.getDeclaredField("id");
+                    idField.setAccessible(true);
+                    idField.setInt(spell, counter.getAndIncrement());
+                } catch (Exception e) {
+                    throw new RuntimeException("Failed to set networkID for spell: " + spell.getRegistryName(), e);
+                }
+            });
+
+        // 🧪 Log all spell IDs for verification
+        Spell.getSpells(s -> true).forEach(spell -> {
+            System.out.println("[Toklar] Spell: " + spell.getRegistryName()
+                + " → networkID: " + spell.networkID()
+                + " | metadata: " + spell.metadata());
+        });
+
+        // 🧪 Validate metadata uniqueness
+        Set<Integer> seen = new HashSet<>();
+        Spell.getSpells(s -> true).forEach(spell -> {
+            int meta = spell.metadata();
+            if (!seen.add(meta)) {
+                System.err.println("⚠ Duplicate metadata ID: " + meta
+                    + " for spell " + spell.getRegistryName());
+            }
+        });
+
+        // 🧪 Validate networkID uniqueness
+        seen.clear();
+        Spell.getSpells(s -> true).forEach(spell -> {
+            int net = spell.networkID();
+            if (!seen.add(net)) {
+                System.err.println("⚠ Duplicate networkID: " + net
+                    + " for spell " + spell.getRegistryName());
+            }
+        });
+     // 🧪 Log spell tiers for verification
+        Spell.getSpells(s -> true).forEach(spell -> {
+            System.out.println("[Toklar] TierDump: " + spell.getRegistryName()
+                + " | Tier=" + spell.getTier()
+                + " | ID=" + spell.networkID());
+        });
     }
+
 
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {

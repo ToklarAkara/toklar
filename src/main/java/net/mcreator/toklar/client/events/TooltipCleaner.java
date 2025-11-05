@@ -5,6 +5,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry.ImbuementEffect;
 import net.mcreator.toklar.imbuement.HarvestImbuementBonus;
+import net.mcreator.toklar.integrations.ebwizardry.spells.SpellRank;
 import net.mcreator.toklar.tile.TileEntityImbuementAltar;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -96,6 +98,7 @@ public class TooltipCleaner {
             List<HarvestImbuementBonus> activeBonuses = bonuses.stream()
                     .filter(b -> b.appliesToLevel(partLevel))
                     .filter(b -> !(b.range[0] == 1 && b.range[1] == 1 && b.range[2] == 1)) // filter out 1x1x1
+                    .filter(b -> !b.harvestType.trim().equalsIgnoreCase("sword"))
                     .collect(Collectors.toList());
 
             if (!activeBonuses.isEmpty()) {
@@ -114,6 +117,26 @@ public class TooltipCleaner {
                 }
             } else {
                 tooltip.add(TextFormatting.DARK_GRAY + "This part has harvest bonuses, but none are active.");
+            }
+            List<SpellRank> ranks = LycanitePartEffectRegistry.getProjectileSpellsFor(itemId).stream()
+            	    .filter(r -> r.level == partLevel)
+            	    .collect(Collectors.collectingAndThen(
+            	        Collectors.toMap(
+            	            r -> r.projectileName + "_rank" + r.level,
+            	            r -> r,
+            	            (r1, r2) -> r1 // keep first if duplicate
+            	        ),
+            	        map -> new ArrayList<>(map.values())
+            	    ));
+            if (!ranks.isEmpty()) {
+                tooltip.add(TextFormatting.GRAY + "Projectile Spells:");
+                for (SpellRank rank : ranks) {
+                    tooltip.add(TextFormatting.DARK_GRAY + "• " +
+                        TextFormatting.GOLD + capitalize(rank.projectileName) +
+                        TextFormatting.GRAY + " Rank " + rank.level +
+                        TextFormatting.AQUA + " x" + rank.count +
+                        TextFormatting.BLUE + " +" + rank.bonus + " dmg");
+                }
             }
         }
 

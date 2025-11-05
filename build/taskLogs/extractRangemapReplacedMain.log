@@ -2,8 +2,8 @@ Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\libs\ironche
 Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\build\classes\java\api
 Unsupposrted library path: C:\Users\samia\MCreatorWorkspaces\toklar\build\resources\api
 Symbol range map extraction starting
-Processing 42 files
-startProcessing "net/mcreator/toklar/ClientProxyToklar.java" md5: 54f894c0e6e4b6df264e7b4196d17def
+Processing 51 files
+startProcessing "net/mcreator/toklar/ClientProxyToklar.java" md5: 9be1fa4d70b5e275ec2c5fa6fc30cf2d
 endProcessing "net/mcreator/toklar/ClientProxyToklar.java"
 
 startProcessing "net/mcreator/toklar/ElementsToklar.java" md5: e11379b94f1f8db22aef00c4b30c7fa8
@@ -24,7 +24,7 @@ endProcessing "net/mcreator/toklar/StructureTradeFixerMod.java"
 startProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java" md5: 1fedbe2b176870f488c0ad5ea6253445
 endProcessing "net/mcreator/toklar/SummonDamageBuffHandler.java"
 
-startProcessing "net/mcreator/toklar/Toklar.java" md5: 5245e8cdfa812e9875343062e40af49e
+startProcessing "net/mcreator/toklar/Toklar.java" md5: b5b0b35f77301e25552a902af396ca75
 endProcessing "net/mcreator/toklar/Toklar.java"
 
 startProcessing "net/mcreator/toklar/ToklarVariables.java" md5: a29b00d88913dfb8f6e544f582bde268
@@ -42,7 +42,7 @@ endProcessing "net/mcreator/toklar/block/TileEntityMonsterCandle.java"
 startProcessing "net/mcreator/toklar/client/ClientModelRegistry.java" md5: a5b262f6f8a57373a26988097a1ddea7
 endProcessing "net/mcreator/toklar/client/ClientModelRegistry.java"
 
-startProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java" md5: bc8b19155e0790d973946e775aaffaa5
+startProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java" md5: 3b0ede3b534ff41419bad7a4df66ac6d
 endProcessing "net/mcreator/toklar/client/events/TooltipCleaner.java"
 
 startProcessing "net/mcreator/toklar/config/ModConfig.java" md5: 5c417c65b473fbd49dbc1a46026329da
@@ -72,7 +72,7 @@ endProcessing "net/mcreator/toklar/entity/EntityMonster.java"
 startProcessing "net/mcreator/toklar/events/DropScalingHandler.java" md5: 3c9d017d274580f204ede3f4977b8dc1
 endProcessing "net/mcreator/toklar/events/DropScalingHandler.java"
 
-startProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java" md5: ddb1b48687fb66c6770558071ddb0a6f
+startProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java" md5: 1ea0c4de1f8f9cb5d004c865c7625796
 endProcessing "net/mcreator/toklar/gui/ContainerImbuementAltar.java"
 
 startProcessing "net/mcreator/toklar/gui/GuiHandler.java" md5: 17b63fded442b7094ef1eecb9eb7a068
@@ -93,6 +93,9 @@ endProcessing "net/mcreator/toklar/imbuement/HarvestImbuementHandler.java"
 startProcessing "net/mcreator/toklar/imbuement/ImbuementTooltipHandler.java" md5: 2552cdd4d16a34b8eaafe6665f228a45
 endProcessing "net/mcreator/toklar/imbuement/ImbuementTooltipHandler.java"
 
+startProcessing "net/mcreator/toklar/imbuement/SpellbookImbuementHelper.java" md5: 4af9f6fe5c88a5bd88499ef776180076
+endProcessing "net/mcreator/toklar/imbuement/SpellbookImbuementHelper.java"
+
 startProcessing "net/mcreator/toklar/imbuement/WeaponImbuementHandler.java" md5: 802f8b0d260c113f769281708dba0199
 endProcessing "net/mcreator/toklar/imbuement/WeaponImbuementHandler.java"
 
@@ -105,7 +108,19 @@ endProcessing "net/mcreator/toklar/init/ModBlocks.java"
 startProcessing "net/mcreator/toklar/init/ModRecipes.java" md5: 78573a6611b41fd3fdf2188c472dc340
 endProcessing "net/mcreator/toklar/init/ModRecipes.java"
 
-startProcessing "net/mcreator/toklar/item/ItemBronzeArmor.java" md5: f5980cac8b784fe33c876cbf673e20bb
+startProcessing "net/mcreator/toklar/integrations/ebwizardry/DynamicSpellRegistry.java" md5: 9c551afb55205026133b178249a089ef
+endProcessing "net/mcreator/toklar/integrations/ebwizardry/DynamicSpellRegistry.java"
+
+startProcessing "net/mcreator/toklar/integrations/ebwizardry/datagen/SpellJsonGenerator.java" md5: 9b2a39a7ad3a5580f1a3c7e7303e73c6
+endProcessing "net/mcreator/toklar/integrations/ebwizardry/datagen/SpellJsonGenerator.java"
+
+startProcessing "net/mcreator/toklar/integrations/ebwizardry/spells/SpellProjectileFromRank.java" md5: 89b2e6b844e6c882260c6d4fb2eaecb7
+endProcessing "net/mcreator/toklar/integrations/ebwizardry/spells/SpellProjectileFromRank.java"
+
+startProcessing "net/mcreator/toklar/integrations/ebwizardry/spells/SpellRank.java" md5: 60160fb027af312b18a8d8499c2e7088
+endProcessing "net/mcreator/toklar/integrations/ebwizardry/spells/SpellRank.java"
+
+startProcessing "net/mcreator/toklar/item/ItemBronzeArmor.java" md5: a1387e76eab4bc57e6789d0665e5f493
 endProcessing "net/mcreator/toklar/item/ItemBronzeArmor.java"
 
 startProcessing "net/mcreator/toklar/item/ItemSummonClanky.java" md5: 6f5e23cde987367cac8b3b61647e1779
@@ -114,16 +129,28 @@ endProcessing "net/mcreator/toklar/item/ItemSummonClanky.java"
 startProcessing "net/mcreator/toklar/item/ItemSummonClankyElement.java" md5: 0bcd56efa4fa899aaeb55b60c07dc3df
 endProcessing "net/mcreator/toklar/item/ItemSummonClankyElement.java"
 
-startProcessing "net/mcreator/toklar/item/ItemToklarArmor.java" md5: bab2773e0a9d72969c3f51f5ee369f97
+startProcessing "net/mcreator/toklar/item/ItemToklarArmor.java" md5: e8f4b43faaabc88637bed4bf21aabd0d
 endProcessing "net/mcreator/toklar/item/ItemToklarArmor.java"
 
-startProcessing "net/mcreator/toklar/tile/TileEntityImbuementAltar.java" md5: ad9cb77653297be5ae8691ccca588cf0
+startProcessing "net/mcreator/toklar/registry/SpellRegistryBootstrap.java" md5: 807bd98ff1d9a961c0c2ac0ecaa67704
+endProcessing "net/mcreator/toklar/registry/SpellRegistryBootstrap.java"
+
+startProcessing "net/mcreator/toklar/tile/TileEntityImbuementAltar.java" md5: c2f99aea2a9db826f99168c74d19c30e
 endProcessing "net/mcreator/toklar/tile/TileEntityImbuementAltar.java"
+
+startProcessing "net/mcreator/toklar/tools/ChatSpy.java" md5: 5b1019b56c77561df4cf9a27dbc4358c
+endProcessing "net/mcreator/toklar/tools/ChatSpy.java"
+
+startProcessing "net/mcreator/toklar/tools/ServerChatSpy.java" md5: 3ed7d18ebbb627f4bb495bfe5852e434
+endProcessing "net/mcreator/toklar/tools/ServerChatSpy.java"
+
+startProcessing "net/mcreator/toklar/tools/SpellJsonGenerator.java" md5: 58e575f2ec739edab761788036c80c85
+endProcessing "net/mcreator/toklar/tools/SpellJsonGenerator.java"
 
 startProcessing "net/mcreator/toklar/util/FocusTracker.java" md5: 40cea1103a2bbef3d5c8eeaceb252aff
 endProcessing "net/mcreator/toklar/util/FocusTracker.java"
 
-startProcessing "net/mcreator/toklar/util/LycanitePartEffectRegistry.java" md5: 1bda5516eee347cc84959362bd47e01a
+startProcessing "net/mcreator/toklar/util/LycanitePartEffectRegistry.java" md5: 7a5a22133f28639a01dbf859eeb38798
 endProcessing "net/mcreator/toklar/util/LycanitePartEffectRegistry.java"
 
 startProcessing "net/mcreator/toklar/util/WizardSpawnHandler.java" md5: ebc36569ca5a5ac9a90e923e721752ff

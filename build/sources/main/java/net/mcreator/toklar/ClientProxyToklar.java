@@ -10,6 +10,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.mcreator.toklar.item.ItemSummonClankyElement;
+import electroblob.wizardry.spell.Spell;
+import electroblob.wizardry.util.SpellNetworkIDSorter;
 import net.mcreator.toklar.client.events.TooltipCleaner;
 import net.mcreator.toklar.imbuement.ImbuementTooltipHandler;
 import net.mcreator.toklar.init.ModBlocks;
@@ -38,6 +40,13 @@ public class ClientProxyToklar implements IProxyToklar {
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
+        SpellNetworkIDSorter.init();
+        System.out.println("[Toklar] Client-side SpellNetworkIDSorter re-run");
+
+        // 🧪 Log all spell IDs to verify client-server sync
+        Spell.getSpells(s -> true).forEach(spell -> {
+            System.out.println("[Toklar] [Client] Spell: " + spell.getRegistryName() + " → ID: " + spell.networkID());
+        });
     }
 
     @Override
