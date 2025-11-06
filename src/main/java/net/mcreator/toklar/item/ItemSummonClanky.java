@@ -76,6 +76,7 @@ public class ItemSummonClanky extends Item {
             EntityMonster.EntityCustom boss = new EntityMonster.EntityCustom(world);
             BlockPos pos = player.getPosition();
             boss.setPosition(pos.getX() + 1, pos.getY(), pos.getZ() + 1);
+            boss.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(boss)), null);
             world.spawnEntity(boss);
 
             // Play summon sound
