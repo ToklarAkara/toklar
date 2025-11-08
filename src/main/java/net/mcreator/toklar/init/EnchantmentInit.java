@@ -13,9 +13,9 @@ public class EnchantmentInit {
         .setRegistryName("toklar", "focus")
         .setName("toklar.focus");
 
-    // public static final Enchantment REACH = new EnchantReach()
-    //     .setRegistryName("toklar", "reach")
-    //     .setName("toklar.reach");
+     public static final Enchantment REACH = new EnchantReach()
+         .setRegistryName("toklar", "reach")
+         .setName("toklar.reach");
 
     public static final Enchantment HEROIC = new EnchantHeroic()
         .setRegistryName("toklar", "heroic")
@@ -29,7 +29,7 @@ public class EnchantmentInit {
     public static void onRegisterEnchantments(RegistryEvent.Register<Enchantment> event) {
         event.getRegistry().registerAll(
             FOCUS,
-            // REACH,
+            REACH,
             HEROIC,
             ARCANE_LEECH
         );

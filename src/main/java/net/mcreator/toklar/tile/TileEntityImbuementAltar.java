@@ -188,6 +188,9 @@ public class TileEntityImbuementAltar extends TileEntity implements IInventory, 
                 System.out.println("[Toklar] No matching spell found for part: " + itemId + " level: " + partLevel);
             }
         }
+        if (wroteAnything && !isValidSpellbook(item)) {
+            inventory.set(3, preview);
+        }
     }
 
 
