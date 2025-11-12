@@ -138,7 +138,7 @@ public class SummonDamageBuffHandler {
         }
     }
 
-    private static boolean isHuman(EntityPlayer player) {
+    public static boolean isHuman(EntityPlayer player) {
         String race = EntityApiHelper.getEntityRace(player);
         debugLog("Player race: " + race);
         return "none".equalsIgnoreCase(race);
@@ -254,14 +254,14 @@ public class SummonDamageBuffHandler {
         debugLog("Expected toklar boots item: " + ItemToklarArmor.boots);
     }
 
-    private static boolean isWearingFullBronzeSet(EntityPlayer player) {
+    public static boolean isWearingFullBronzeSet(EntityPlayer player) {
         return isMatching(ItemBronzeArmor.helmet, player.getItemStackFromSlot(EntityEquipmentSlot.HEAD)) &&
                isMatching(ItemBronzeArmor.body, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST)) &&
                isMatching(ItemBronzeArmor.legs, player.getItemStackFromSlot(EntityEquipmentSlot.LEGS)) &&
                isMatching(ItemBronzeArmor.boots, player.getItemStackFromSlot(EntityEquipmentSlot.FEET));
     }
 
-    private static boolean isWearingFullToklarSet(EntityPlayer player) {
+    public static boolean isWearingFullToklarSet(EntityPlayer player) {
         return isMatching(ItemToklarArmor.helmet, player.getItemStackFromSlot(EntityEquipmentSlot.HEAD)) &&
                isMatching(ItemToklarArmor.body, player.getItemStackFromSlot(EntityEquipmentSlot.CHEST)) &&
                isMatching(ItemToklarArmor.legs, player.getItemStackFromSlot(EntityEquipmentSlot.LEGS)) &&
