@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -118,7 +120,9 @@ public class SummonDamageBuffHandler {
             debugLog("Player is not human, no summon buff applied.");
             return;
         }
-
+        
+        rewriteDamageSourceToPlayer(event, owner, attackerEntity);
+        
         if (isWearingFullBronzeSet(owner)) {
             float oldDamage = event.getAmount();
             float multiplier = ModConfig.getSummonDamageMultiplier();
@@ -237,7 +241,98 @@ public class SummonDamageBuffHandler {
             }
         }
     }
+    public static EntityPlayer resolveValidSummonOwner(DamageSource source) {
+        Entity immediateSource = source.getImmediateSource();
+        Entity trueSource = source.getTrueSource();
 
+        EntityLivingBase attackerEntity = null;
+        EntityPlayer owner = null;
+
+        // Arrow logic
+        if (immediateSource instanceof EntityArrow) {
+            Entity shooter = ((EntityArrow) immediateSource).shootingEntity;
+            if (shooter instanceof EntitySummonedCreature) {
+                owner = getOwnerFromEntity((EntitySummonedCreature) shooter);
+                if (owner != null) {
+                    attackerEntity = (EntityLivingBase) shooter;
+                }
+            } else if (shooter instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) shooter;
+                owner = getOwnerFromEntity(attackerEntity);
+            }
+        }
+
+        // Fallbacks
+        if (attackerEntity == null) {
+            if (immediateSource instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) immediateSource;
+            } else if (trueSource instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) trueSource;
+            } else {
+                return null;
+            }
+        }
+
+        // Direct player logic
+        if (attackerEntity instanceof EntityPlayer) {
+            if (immediateSource instanceof EntitySummonedCreature) {
+                EntitySummonedCreature summoned = (EntitySummonedCreature) immediateSource;
+                UUID casterUUID = getCasterUUIDFromSummoned(summoned);
+                if (casterUUID != null && casterUUID.equals(attackerEntity.getUniqueID())) {
+                    owner = (EntityPlayer) attackerEntity;
+                    attackerEntity = summoned;
+                } else {
+                    owner = (EntityPlayer) attackerEntity;
+                }
+            } else {
+                owner = (EntityPlayer) attackerEntity;
+            }
+        }
+
+        // Final fallback
+        if (owner == null) {
+            owner = getOwnerFromEntity(attackerEntity);
+        }
+
+        // Validation
+        if (owner != null && isHuman(owner) &&
+            (isWearingFullBronzeSet(owner) || isWearingFullToklarSet(owner))) {
+            return owner;
+        }
+
+        return null;
+    }
+    
+    private static void rewriteDamageSourceToPlayer(LivingHurtEvent event, EntityPlayer owner, EntityLivingBase attackerEntity) {
+        DamageSource original = event.getSource();
+        DamageSource rewritten;
+
+        if (attackerEntity != null && attackerEntity != owner) {
+            // Use Indirect if attacker is a summon, player is the true source
+            rewritten = new EntityDamageSourceIndirect(original.damageType, attackerEntity, owner);
+        } else {
+            // Use direct if player is both attacker and true source
+            rewritten = new EntityDamageSource(original.damageType, owner);
+        }
+
+        // Preserve flags if needed
+        if (original.isProjectile()) rewritten.setProjectile();
+        if (original.isExplosion()) rewritten.setExplosion();
+        if (original.isMagicDamage()) rewritten.setMagicDamage();
+        if (original.canHarmInCreative()) rewritten.setDamageAllowedInCreativeMode();
+        if (original.isDamageAbsolute()) rewritten.setDamageIsAbsolute();
+        if (original.isFireDamage()) rewritten.setFireDamage();
+
+        try {
+            java.lang.reflect.Field sourceField = LivingHurtEvent.class.getDeclaredField("source");
+            sourceField.setAccessible(true);
+            sourceField.set(event, rewritten);
+            debugLog("Rewrote DamageSource to flag player " + owner.getName() + " as trueSource.");
+        } catch (Exception e) {
+            debugLog("Failed to rewrite DamageSource: " + e.getMessage());
+        }
+    }
+    
     private static void debugArmorCheck(EntityPlayer player) {
         debugLog("Checking armor:");
         debugLog("Helmet equipped: " + player.getItemStackFromSlot(EntityEquipmentSlot.HEAD));
