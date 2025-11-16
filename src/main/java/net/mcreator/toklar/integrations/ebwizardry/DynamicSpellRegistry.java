@@ -85,19 +85,14 @@ public final class DynamicSpellRegistry {
                 System.out.println("[Toklar] Skipped already-registered spell: " + spell.getRegistryName());
             }
 
-            // ✅ Safe icon assignment after registration
+            // Always assign fallback icon
             try {
-                String iconPath = "textures/spells/" + spell.getRegistryName().getResourcePath() + ".png";
-                File iconFile = new File("resources/assets/toklar/" + iconPath);
-                ResourceLocation icon = iconFile.exists()
-                    ? new ResourceLocation("toklar", iconPath)
-                    : new ResourceLocation("toklar", "textures/spells/fallback.png");
-
+                ResourceLocation fallbackIcon = new ResourceLocation("toklar", "textures/spells/fallback.png");
                 Field iconField = Spell.class.getDeclaredField("icon");
                 iconField.setAccessible(true);
-                iconField.set(spell, icon);
+                iconField.set(spell, fallbackIcon);
             } catch (Exception e) {
-                System.err.println("[Toklar] Failed to assign icon for spell: " + spell.getRegistryName());
+                System.err.println("[Toklar] Failed to assign fallback icon for spell: " + spell.getRegistryName());
                 e.printStackTrace();
             }
         }

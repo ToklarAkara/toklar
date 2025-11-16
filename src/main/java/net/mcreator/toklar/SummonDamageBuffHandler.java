@@ -16,6 +16,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -27,6 +29,7 @@ import net.mcreator.toklar.item.ItemToklarArmor;
 import com.windanesz.wizardryutils.capability.SummonedCreatureData;
 import xzeroair.trinkets.api.EntityApiHelper;
 
+import java.lang.reflect.Field;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber
@@ -38,6 +41,79 @@ public class SummonDamageBuffHandler {
         }
     }
 
+    @SubscribeEvent
+    public static void onLivingAttack(LivingAttackEvent event) {
+        DamageSource source = event.getSource();
+        Entity immediateSource = source.getImmediateSource();
+        Entity trueSource = source.getTrueSource();
+
+        debugLog("Attack event: Immediate=" + (immediateSource != null ? immediateSource.getClass().getName() : "null")
+            + ", True=" + (trueSource != null ? trueSource.getClass().getName() : "null"));
+
+        EntityLivingBase attackerEntity = null;
+        EntityPlayer owner = null;
+
+        // Arrow handling
+        if (immediateSource instanceof EntityArrow) {
+            EntityArrow arrow = (EntityArrow) immediateSource;
+            Entity shooter = arrow.shootingEntity;
+            if (shooter instanceof EntitySummonedCreature) {
+                attackerEntity = (EntitySummonedCreature) shooter;
+                owner = getOwnerFromEntity((EntitySummonedCreature) shooter);
+                if (owner != null) debugLog("Arrow shot by summoned creature owned by player: " + owner.getName());
+            } else if (shooter instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) shooter;
+                owner = getOwnerFromEntity((EntityLivingBase) shooter);
+                if (owner != null) debugLog("Arrow shot by summon owned by player: " + owner.getName());
+            }
+        }
+
+        // Fallback attacker resolution
+        if (attackerEntity == null) {
+            if (immediateSource instanceof EntityLivingBase) attackerEntity = (EntityLivingBase) immediateSource;
+            else if (trueSource instanceof EntityLivingBase) attackerEntity = (EntityLivingBase) trueSource;
+        }
+
+        // Resolve owner
+        if (attackerEntity instanceof EntityPlayer) {
+            owner = (EntityPlayer) attackerEntity;
+            debugLog("Attack caused directly by player: " + owner.getName());
+        } else if (attackerEntity != null) {
+            owner = getOwnerFromEntity(attackerEntity);
+            if (owner != null) debugLog("Owner found: " + owner.getName());
+        }
+
+        if (owner == null) {
+            debugLog("No owner resolved at attack time.");
+            return;
+        }
+
+        debugArmorCheck(owner);
+        if (!isHuman(owner)) {
+            debugLog("Owner not human, no kill credit applied.");
+            return;
+        }
+        if (!isWearingFullBronzeSet(owner) && !isWearingFullToklarSet(owner)) {
+            debugLog("Owner not wearing bronze/toklar set, no kill credit applied.");
+            return;
+        }
+
+        // Attribution: set attackingPlayer + recentlyHit before vanilla death handling
+        try {
+            Field fAttacker = EntityLivingBase.class.getDeclaredField("attackingPlayer");
+            fAttacker.setAccessible(true);
+            fAttacker.set(event.getEntityLiving(), owner);
+
+            Field fRecentlyHit = EntityLivingBase.class.getDeclaredField("recentlyHit");
+            fRecentlyHit.setAccessible(true);
+            fRecentlyHit.setInt(event.getEntityLiving(), 100);
+
+            debugLog("Forced attackingPlayer=" + owner.getName() + " and recentlyHit=100 in LivingAttackEvent.");
+        } catch (Exception e) {
+            debugLog("Failed to set attribution in LivingAttackEvent: " + e.getMessage());
+        }
+    }
+    
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
         DamageSource source = event.getSource();
@@ -142,6 +218,74 @@ public class SummonDamageBuffHandler {
         }
     }
 
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        DamageSource source = event.getSource();
+        Entity immediateSource = source.getImmediateSource();
+        Entity trueSource = source.getTrueSource();
+
+        debugLog("Death event: Immediate source = " + (immediateSource != null ? immediateSource.getClass().getName() : "null"));
+        debugLog("Death event: True source = " + (trueSource != null ? trueSource.getClass().getName() : "null"));
+
+        EntityLivingBase attackerEntity = null;
+        EntityPlayer owner = null;
+
+        // Resolve attacker/owner (same logic as  onLivingHurt)
+        if (immediateSource instanceof EntityArrow) {
+            EntityArrow arrow = (EntityArrow) immediateSource;
+            Entity shooter = arrow.shootingEntity;
+            if (shooter instanceof EntitySummonedCreature) {
+                owner = getOwnerFromEntity((EntitySummonedCreature) shooter);
+                attackerEntity = (EntitySummonedCreature) shooter;
+            } else if (shooter instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) shooter;
+                owner = getOwnerFromEntity((EntityLivingBase) shooter);
+            }
+        }
+        if (attackerEntity == null) {
+            if (immediateSource instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) immediateSource;
+            } else if (trueSource instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) trueSource;
+            }
+        }
+        if (attackerEntity instanceof EntityPlayer) {
+            owner = (EntityPlayer) attackerEntity;
+        } else if (attackerEntity != null) {
+            owner = getOwnerFromEntity(attackerEntity);
+        }
+
+        if (owner == null) {
+            debugLog("No owner resolved at death.");
+            return;
+        }
+
+        debugArmorCheck(owner);
+        if (!isHuman(owner)) {
+            debugLog("Owner is not human, no kill credit applied.");
+            return;
+        }
+        if (!isWearingFullBronzeSet(owner) && !isWearingFullToklarSet(owner)) {
+            debugLog("Owner not wearing bronze or toklar set, no kill credit applied.");
+            return;
+        }
+
+        // Reflection to set attackingPlayer and recentlyHit
+        try {
+            Field fAttacker = EntityLivingBase.class.getDeclaredField("attackingPlayer");
+            fAttacker.setAccessible(true);
+            fAttacker.set(event.getEntityLiving(), owner);
+
+            Field fRecentlyHit = EntityLivingBase.class.getDeclaredField("recentlyHit");
+            fRecentlyHit.setAccessible(true);
+            fRecentlyHit.setInt(event.getEntityLiving(), 100);
+
+            debugLog("Forced attackingPlayer=" + owner.getName() + " and recentlyHit=100 for death attribution.");
+        } catch (Exception e) {
+            debugLog("Failed to set kill attribution: " + e.getMessage());
+        }
+    }
+    
     public static boolean isHuman(EntityPlayer player) {
         String race = EntityApiHelper.getEntityRace(player);
         debugLog("Player race: " + race);
