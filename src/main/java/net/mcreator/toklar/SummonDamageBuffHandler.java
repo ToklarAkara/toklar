@@ -25,7 +25,7 @@ import electroblob.wizardry.entity.living.EntitySummonedCreature;
 import net.mcreator.toklar.config.ModConfig;
 import net.mcreator.toklar.item.ItemBronzeArmor;
 import net.mcreator.toklar.item.ItemToklarArmor;
-
+import net.mcreator.toklar.PlayerActivityTracker;
 import com.windanesz.wizardryutils.capability.SummonedCreatureData;
 import xzeroair.trinkets.api.EntityApiHelper;
 
@@ -441,6 +441,21 @@ public class SummonDamageBuffHandler {
         // Validation
         if (owner != null && isHuman(owner) &&
             (isWearingFullBronzeSet(owner) || isWearingFullToklarSet(owner))) {
+
+        	// Distance guard
+        	Entity trueSourceEntity = source.getTrueSource();
+        	if (trueSourceEntity != null &&
+        	    owner.getDistance(trueSourceEntity) > ModConfig.summonOwnerMaxDistance) {
+        	    return null;
+        	}
+
+        	// Activity guard
+        	long lastActive = PlayerActivityTracker.getLastActiveTick(owner);
+        	long now = owner.world.getTotalWorldTime();
+        	if (now - lastActive > ModConfig.summonOwnerIdleTimeoutTicks) {
+        	    return null;
+        	}
+
             return owner;
         }
 

@@ -57,7 +57,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.2.6";
+    public static final String VERSION = "1.2.7";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -108,7 +108,23 @@ public class Toklar {
             "Damage multiplier for summons when wearing full Toklar armor"
         );
         ModConfig.setToklarSummonDamageMultiplier(toklarMultiplier);
+        int maxDistance = config.getInt(
+        	    "summonOwnerMaxDistance",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.summonOwnerMaxDistance,
+        	    1, 256,
+        	    "Maximum distance in blocks for summon attribution"
+        	);
+        	ModConfig.summonOwnerMaxDistance = maxDistance;
 
+        	int idleTimeout = config.getInt(
+        	    "summonOwnerIdleTimeoutTicks",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.summonOwnerIdleTimeoutTicks,
+        	    20, 72000,
+        	    "Idle timeout in ticks for AFK guard (20 ticks = 1 second)"
+        	);
+        	ModConfig.summonOwnerIdleTimeoutTicks = idleTimeout;
 
         float focusBonus = config.getFloat(
         	    "focusBonusDamagePerLevel",
@@ -158,6 +174,8 @@ public class Toklar {
         LootTableList.register(new ResourceLocation("toklar", "entities/clanky"));
         MinecraftForge.EVENT_BUS.register(new StructureTradeFixer());
         System.out.println("[Mod Init] Registering SummonDamageBuffHandler");
+        MinecraftForge.EVENT_BUS.register(PlayerActivityTracker.class);
+
         // SummonDamageBuffHandler.register();
     }
 
