@@ -30,14 +30,14 @@ public class ModConfig {
         else if (multiplier > 100.0F) multiplier = 100.0F;
         summonDamageMultiplier = multiplier;
     }
-    public static float toklarsJewelDamageReduction = 1.0F; // default = no reduction
+    public static float toklarsBeltDamageReduction = 0.8F; // default = no reduction
     
-    public static float toklarsBeltHealAmount = 2.0F; // default heal per valid hit
+    public static float toklarsJewelHealAmount = 2.0F; // default heal per valid hit
     // Toggle: use cooldown instead of per-hit healing
-    public static boolean toklarsBeltUseCooldown = false; // default off
+    public static boolean toklarsJewelUseCooldown = false; // default off
 
     // Cooldown duration in ticks (20 ticks = 1 second)
-    public static int toklarsBeltCooldownTicks = 40; // default = 2 seconds
+    public static int toklarsJewelCooldownTicks = 40; // default = 2 seconds
     
     public static float getToklarSummonDamageMultiplier() { return toklarSummonDamageMultiplier; }
     public static void setToklarSummonDamageMultiplier(float multiplier) {

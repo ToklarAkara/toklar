@@ -60,7 +60,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.3.4";
+    public static final String VERSION = "1.3.5";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -94,40 +94,40 @@ public class Toklar {
             "Enable debug messages for SummonDamageBuffHandler"
         );
         
-        float beltHeal = config.getFloat(
-        	    "toklarsBeltHealAmount",
+        float jewelHeal = config.getFloat(
+        	    "toklarsJewelHealAmount",
         	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.toklarsBeltHealAmount,
+        	    ModConfig.toklarsJewelHealAmount,
         	    0.0F, 20.0F,
-        	    "Flat HP healed when Toklar's Belt effect triggers (per valid hit)"
+        	    "Flat HP healed when Toklar's Jewel effect triggers (per valid hit)"
         	);
-        	ModConfig.toklarsBeltHealAmount = beltHeal;
+        	ModConfig.toklarsJewelHealAmount = jewelHeal;
 
-        	boolean beltUseCooldown = config.getBoolean(
-        	    "toklarsBeltUseCooldown",
+        	boolean jewelUseCooldown = config.getBoolean(
+        	    "toklarsJewelUseCooldown",
         	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.toklarsBeltUseCooldown,
-        	    "If true, Toklar's Belt healing uses a cooldown instead of per-hit healing"
+        	    ModConfig.toklarsJewelUseCooldown,
+        	    "If true, Toklar's Jewel healing triggers a cooldown on per-hit healing"
         	);
-        	ModConfig.toklarsBeltUseCooldown = beltUseCooldown;
+        	ModConfig.toklarsJewelUseCooldown = jewelUseCooldown;
 
-        	int beltCooldown = config.getInt(
-        	    "toklarsBeltCooldownTicks",
+        	int jewelCooldown = config.getInt(
+        	    "toklarsJewelCooldownTicks",
         	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.toklarsBeltCooldownTicks,
+        	    ModConfig.toklarsJewelCooldownTicks,
         	    1, 6000,
-        	    "Cooldown duration in ticks for Toklar's Belt healing (20 ticks = 1 second)"
+        	    "Cooldown duration in ticks for Toklar's Jewel healing if enabled (20 ticks = 1 second)"
         	);
-        	ModConfig.toklarsBeltCooldownTicks = beltCooldown;
+        	ModConfig.toklarsJewelCooldownTicks = jewelCooldown;
         	
-        float jewelReduction = config.getFloat(
-        	    "toklarsJewelDamageReduction",
+        float beltReduction = config.getFloat(
+        	    "toklarsBeltDamageReduction",
         	    Configuration.CATEGORY_GENERAL,
-        	    ModConfig.toklarsJewelDamageReduction,
+        	    ModConfig.toklarsBeltDamageReduction,
         	    0.0F, 1.0F,
-        	    "Damage reduction multiplier when wearing Toklar's Jewel (0.0 = no damage, 1.0 = full damage)"
+        	    "Damage reduction multiplier when wearing Toklar's Girdle (0.0 = no damage, 1.0 = full damage)"
         	);
-        	ModConfig.toklarsJewelDamageReduction = jewelReduction;       
+        	ModConfig.toklarsBeltDamageReduction = beltReduction;       
         	        	
         float bronzeMultiplier = config.getFloat(
             "summonDamageMultiplierBronze",

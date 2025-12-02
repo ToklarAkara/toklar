@@ -108,7 +108,7 @@ spell.toklar:tundra_rank3=Tundra III
 # Baubles
 # =========================
 item.toklars_girdle.name=Toklar's Girdle
-item.toklars_girdle.desc=When equipped, heals the summoner whenever their summons deal damage. 
+item.toklars_jewel_1.desc=When equipped, heals the summoner whenever their summons deal damage. 
 
 item.toklars_jewel_1.name=Toklar's Jewel
-item.toklars_jewel_1.desc=When worn, reduces damage taken if your own summons are nearby. 
+item.toklars_girdle.desc=When worn, reduces damage taken if your own summons are nearby. 
