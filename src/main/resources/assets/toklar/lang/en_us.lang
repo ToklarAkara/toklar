@@ -104,3 +104,11 @@ spell.toklar:crystalshard_rank3=Crystal Shard III
 spell.toklar:tundra_rank1=Tundra I
 spell.toklar:tundra_rank2=Tundra II
 spell.toklar:tundra_rank3=Tundra III
+# =========================
+# Baubles
+# =========================
+item.toklars_girdle.name=Toklar's Girdle
+item.toklars_girdle.desc=When equipped, heals the summoner whenever their summons deal damage. 
+
+item.toklars_jewel_1.name=Toklar's Jewel
+item.toklars_jewel_1.desc=When worn, reduces damage taken if your own summons are nearby. 

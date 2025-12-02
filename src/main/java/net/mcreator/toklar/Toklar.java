@@ -48,6 +48,9 @@ import net.mcreator.toklar.init.ModBlocks;
 import net.mcreator.toklar.init.ModRecipes;
 import net.mcreator.toklar.integrations.ebwizardry.DynamicSpellRegistry;
 import net.mcreator.toklar.integrations.ebwizardry.datagen.SpellJsonGenerator;
+import net.mcreator.toklar.item.bauble.ItemToklarsGirdle;
+import net.mcreator.toklar.item.bauble.ToklarsBeltHandler;
+import net.mcreator.toklar.item.bauble.ToklarsJewelHandler;
 import net.mcreator.toklar.tools.ChatSpy;
 import net.mcreator.toklar.tools.ServerChatSpy;
 import net.mcreator.toklar.util.LycanitePartEffectRegistry;
@@ -57,7 +60,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Toklar {
     public static final String MODID = "toklar";
-    public static final String VERSION = "1.2.7";
+    public static final String VERSION = "1.3.4";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("toklar:a");
 
     @SidedProxy(clientSide = "net.mcreator.toklar.ClientProxyToklar", serverSide = "net.mcreator.toklar.ServerProxyToklar")
@@ -90,7 +93,42 @@ public class Toklar {
             ModConfig.enableSummonDamageBuffDebug,
             "Enable debug messages for SummonDamageBuffHandler"
         );
+        
+        float beltHeal = config.getFloat(
+        	    "toklarsBeltHealAmount",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.toklarsBeltHealAmount,
+        	    0.0F, 20.0F,
+        	    "Flat HP healed when Toklar's Belt effect triggers (per valid hit)"
+        	);
+        	ModConfig.toklarsBeltHealAmount = beltHeal;
+
+        	boolean beltUseCooldown = config.getBoolean(
+        	    "toklarsBeltUseCooldown",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.toklarsBeltUseCooldown,
+        	    "If true, Toklar's Belt healing uses a cooldown instead of per-hit healing"
+        	);
+        	ModConfig.toklarsBeltUseCooldown = beltUseCooldown;
+
+        	int beltCooldown = config.getInt(
+        	    "toklarsBeltCooldownTicks",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.toklarsBeltCooldownTicks,
+        	    1, 6000,
+        	    "Cooldown duration in ticks for Toklar's Belt healing (20 ticks = 1 second)"
+        	);
+        	ModConfig.toklarsBeltCooldownTicks = beltCooldown;
         	
+        float jewelReduction = config.getFloat(
+        	    "toklarsJewelDamageReduction",
+        	    Configuration.CATEGORY_GENERAL,
+        	    ModConfig.toklarsJewelDamageReduction,
+        	    0.0F, 1.0F,
+        	    "Damage reduction multiplier when wearing Toklar's Jewel (0.0 = no damage, 1.0 = full damage)"
+        	);
+        	ModConfig.toklarsJewelDamageReduction = jewelReduction;       
+        	        	
         float bronzeMultiplier = config.getFloat(
             "summonDamageMultiplierBronze",
             Configuration.CATEGORY_GENERAL,
@@ -146,7 +184,7 @@ public class Toklar {
             if (config.hasChanged()) {
                 config.save();
             }
-        // Register your trade fixer to listen for events
+        
             MinecraftForge.EVENT_BUS.register(new WeaponImbuementHandler());
             MinecraftForge.EVENT_BUS.register(new HarvestImbuementHandler());
             MinecraftForge.EVENT_BUS.register(new EnchantReach());
@@ -156,6 +194,8 @@ public class Toklar {
         MinecraftForge.EVENT_BUS.register(net.mcreator.toklar.init.EnchantmentInit.class);
         MinecraftForge.EVENT_BUS.register(new FocusRetargetHandler());
         MinecraftForge.EVENT_BUS.register(new FocusEnchantmentHandler());
+        MinecraftForge.EVENT_BUS.register(new ToklarsBeltHandler());
+        MinecraftForge.EVENT_BUS.register(new ToklarsJewelHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         GameRegistry.registerWorldGenerator(elements, 5);
         GameRegistry.registerFuelHandler(elements);
@@ -283,5 +323,6 @@ public class Toklar {
     static {
         FluidRegistry.enableUniversalBucket();
     }
+
 
 }

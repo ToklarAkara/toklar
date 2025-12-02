@@ -462,6 +462,58 @@ public class SummonDamageBuffHandler {
         return null;
     }
     
+    public static EntityPlayer resolveValidSummonOwner(Entity entity) {
+        if (entity == null) return null;
+
+        EntityLivingBase attackerEntity = null;
+        EntityPlayer owner = null;
+
+        if (entity instanceof EntityArrow) {
+            Entity shooter = ((EntityArrow) entity).shootingEntity;
+            if (shooter instanceof EntitySummonedCreature) {
+                owner = getOwnerFromEntity((EntitySummonedCreature) shooter);
+                if (owner != null) {
+                    attackerEntity = (EntityLivingBase) shooter;
+                }
+            } else if (shooter instanceof EntityLivingBase) {
+                attackerEntity = (EntityLivingBase) shooter;
+                owner = getOwnerFromEntity(attackerEntity);
+            }
+        } else if (entity instanceof EntityLivingBase) {
+            attackerEntity = (EntityLivingBase) entity;
+            owner = getOwnerFromEntity(attackerEntity);
+        }
+
+        // Direct player logic
+        if (attackerEntity instanceof EntityPlayer) {
+            owner = (EntityPlayer) attackerEntity;
+        }
+
+        // Final fallback
+        if (owner == null) {
+            owner = getOwnerFromEntity(attackerEntity);
+        }
+
+        // Validation (same guards as your DamageSource version)
+        if (owner != null && isHuman(owner) &&
+            (isWearingFullBronzeSet(owner) || isWearingFullToklarSet(owner))) {
+
+            if (attackerEntity != null &&
+                owner.getDistance(attackerEntity) > ModConfig.summonOwnerMaxDistance) {
+                return null;
+            }
+
+            long lastActive = PlayerActivityTracker.getLastActiveTick(owner);
+            long now = owner.world.getTotalWorldTime();
+            if (now - lastActive > ModConfig.summonOwnerIdleTimeoutTicks) {
+                return null;
+            }
+
+            return owner;
+        }
+
+        return null;
+    }    
     private static void rewriteDamageSourceToPlayer(LivingHurtEvent event, EntityPlayer owner, EntityLivingBase attackerEntity) {
         DamageSource original = event.getSource();
         DamageSource rewritten;

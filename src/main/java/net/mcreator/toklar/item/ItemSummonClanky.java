@@ -26,9 +26,9 @@ public class ItemSummonClanky extends Item {
     public ItemSummonClanky() {
         super();
         this.maxStackSize = 1;
-        this.setMaxDamage(0);  // Optional: if you want it not to break
+        this.setMaxDamage(0);  
         this.setFull3D();
-        // Set creative tab if you want here, e.g.
+        // Set creative tab
         // this.setCreativeTab(CreativeTabs.MISC);
     }
     @GameRegistry.ObjectHolder("toklar:ghastly_potion")

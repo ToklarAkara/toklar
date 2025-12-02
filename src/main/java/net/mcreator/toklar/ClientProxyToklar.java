@@ -76,5 +76,16 @@ public class ClientProxyToklar implements IProxyToklar {
             0,
             new ModelResourceLocation("toklar:ghastly_potion", "inventory")
         );
+        ModelLoader.setCustomModelResourceLocation(
+                net.mcreator.toklar.init.ModItems.TOKLARS_GIRDLE,
+                0,
+                new ModelResourceLocation("toklar:toklars_girdle", "inventory")
+            );
+
+            ModelLoader.setCustomModelResourceLocation(
+                net.mcreator.toklar.init.ModItems.TOKLARS_JEWEL_1,
+                0,
+                new ModelResourceLocation("toklar:toklars_jewel_1", "inventory")
+            );
     }
 }
