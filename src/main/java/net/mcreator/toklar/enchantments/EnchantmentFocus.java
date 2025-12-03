@@ -1,6 +1,7 @@
 package net.mcreator.toklar.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -14,11 +15,23 @@ public class EnchantmentFocus extends Enchantment {
 	    this.setName("focus");
 	    // Remove setRegistryName here — it's handled in EnchantmentInit
 	}
-    @Override
-    public boolean canApplyTogether(Enchantment ench) {
-        if (ench == null) return true; // prevent NPE from Anvil Patch
-        return super.canApplyTogether(ench) && ench != this;
-    }
+	@Override
+	public boolean canApplyTogether(Enchantment ench) {
+	    if (ench == null) return true; // prevent NPE from Anvil Patch
+
+	    // Block vanilla damage enchantments
+	    if (ench == Enchantments.SHARPNESS ||
+	        ench == Enchantments.SMITE ||
+	        ench == Enchantments.BANE_OF_ARTHROPODS ||
+	        ench == Enchantments.POWER ||
+	        ench == Enchantments.PUNCH) {
+	        return false;
+	    }
+
+	    // Prevent stacking with itself
+	    return super.canApplyTogether(ench) && ench != this;
+	}
+	
     @Override
     public int getMinEnchantability(int level) {
         return 10 + (level - 1) * 15;
