@@ -1,20 +1,21 @@
-import os, json
+import json
+import os
 
-for filename in os.listdir("."):
+# Use the folder this script is in
+FOLDER = os.path.dirname(os.path.abspath(__file__))
+
+for filename in os.listdir(FOLDER):
     if filename.endswith(".json"):
-        try:
-            with open(filename, "r", encoding="utf-8") as f:
-                data = json.load(f)
+        path = os.path.join(FOLDER, filename)
 
-            if "base_properties" in data:
-                original = data["base_properties"]
-                data["base_properties"] = {}
+        with open(path, "r") as f:
+            data = json.load(f)
 
-                with open(filename, "w", encoding="utf-8") as f:
-                    json.dump(data, f, indent=2, ensure_ascii=False)
+        # Flip looting to false if it exists
+        if "enabled" in data and "looting" in data["enabled"]:
+            data["enabled"]["looting"] = False
 
-                print(f"{filename}: cleared base_properties (was {len(original)} entries)")
-            else:
-                print(f"{filename}: no base_properties key")
-        except Exception as e:
-            print(f"{filename}: error {e}")
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2)
+
+print("All spell JSONs updated.")

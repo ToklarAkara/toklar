@@ -8,14 +8,14 @@
     "commands": true,
     "treasure": false,
     "trades": false,
-    "looting": true
+    "looting": false
   },
   "tier": "advanced",
   "element": "ice",
   "type": "projectile",
   "cost": 45,
   "cooldown": 10,
-   "base_properties": {
+  "base_properties": {
     "damage": 0,
     "count": 1
   },

@@ -8,14 +8,14 @@
     "commands": true,
     "treasure": false,
     "trades": false,
-    "looting": true
+    "looting": false
   },
   "tier": "advanced",
   "element": "lightning",
   "type": "projectile",
   "cost": 45,
   "cooldown": 20,
-   "base_properties": {
+  "base_properties": {
     "damage": 4,
     "count": 24
   },

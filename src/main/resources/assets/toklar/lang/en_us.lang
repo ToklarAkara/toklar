@@ -1,8 +1,8 @@
-item.toklararmorboots.name=Toklar Boots
+item.toklararmorboots.name=Akara Boots
 entity.monster.name=Clanky
-item.toklararmorbody.name=Toklar Chestplate
-item.toklararmorlegs.name=Toklar Leggings
-item.toklararmorhelmet.name=Toklar Helmet
+item.toklararmorbody.name=Akara Chestplate
+item.toklararmorlegs.name=Akara Leggings
+item.toklararmorhelmet.name=Akara Helmet
 item.bronzearmorlegs.name=Bronze Armor Leggings
 item.bronzearmorbody.name=Bronze Armor Body
 item.bronzearmorhelmet.name=Bronze Armor Helmet
@@ -107,8 +107,8 @@ spell.toklar:tundra_rank3=Tundra III
 # =========================
 # Baubles
 # =========================
-item.toklars_girdle.name=Toklar's Girdle
+item.toklars_girdle.name=Akara's Girdle
 item.toklars_jewel_1.desc=When equipped, heals the summoner whenever their summons deal damage. 
 
-item.toklars_jewel_1.name=Toklar's Jewel
+item.toklars_jewel_1.name=Akara's Jewel
 item.toklars_girdle.desc=When worn, reduces damage taken if your own summons are nearby. 

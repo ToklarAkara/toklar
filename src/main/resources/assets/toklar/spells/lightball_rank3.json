@@ -8,14 +8,14 @@
     "commands": true,
     "treasure": false,
     "trades": false,
-    "looting": true
+    "looting": false
   },
   "tier": "advanced",
   "element": "sorcery",
   "type": "projectile",
   "cost": 45,
   "cooldown": 15,
-   "base_properties": {
+  "base_properties": {
     "damage": 10,
     "count": 16
   },

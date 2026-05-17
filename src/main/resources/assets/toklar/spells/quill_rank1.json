@@ -8,14 +8,14 @@
     "commands": true,
     "treasure": false,
     "trades": false,
-    "looting": true
+    "looting": false
   },
   "tier": "novice",
   "element": "earth",
   "type": "projectile",
   "cost": 15,
   "cooldown": 20,
-   "base_properties": {
+  "base_properties": {
     "damage": 0,
     "count": 5
   },
